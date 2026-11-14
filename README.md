@@ -17,7 +17,7 @@ Cronoscope is an independent project; it is not endorsed by NASA.
 
 | Resource | Status |
 | --- | --- |
-| Public GitHub Pages demonstration | **Deployment pending owner approval** — no public URL has been published. |
+| Public GitHub Pages demonstration | **Live static demonstration:** [groksgalaxynet.github.io/Cronoscope](https://groksgalaxynet.github.io/Cronoscope/) |
 | Source repository | **Owner URL pending** — this checkout is the project source. |
 | Getting started locally | [START HERE](START_HERE.md) |
 | Project story | [A Letter From the Creator](A_letter_from_creator.md) |
@@ -178,8 +178,10 @@ Local verification results recorded on November 13, 2026:
 - **Frozen baseline preservation:** PASS
 - **Local GitHub Pages-subpath browser acceptance:** PASS
 
-These are local verification results. They do not mean the static site has been
-publicly deployed.
+The static demonstration was subsequently deployed and checked at
+[groksgalaxynet.github.io/Cronoscope](https://groksgalaxynet.github.io/Cronoscope/).
+The public site is the self-contained static demonstration; local verification
+results remain the authority for the full FITS-driven Python application.
 
 ## Open source and attribution
 
@@ -213,9 +215,10 @@ claim of NASA endorsement, sponsorship, award, or competition result.
 
 - **Scientific implementation:** verified local FITS/WCS/WCS-WAVE and bounded
   comparison capabilities are available in the full Python application.
-- **Static demonstration:** verified locally and prepared for owner-approved
-  GitHub Pages deployment.
-- **Public deployment:** pending owner action; no public Pages URL exists yet.
+- **Static demonstration:** deployed at
+  [groksgalaxynet.github.io/Cronoscope](https://groksgalaxynet.github.io/Cronoscope/).
+- **Public deployment:** the interactive static demonstration is live; it does
+  not include the local FITS products required by the full Python application.
 - **Research features:** moving-object exploration and image-comparison results
   remain evidence-led research, not production detection claims.
 - **Publication blocker:** required rights/redistribution review for packaged

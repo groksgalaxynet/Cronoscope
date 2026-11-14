@@ -1,0 +1,6 @@
+# Optional tools used by archival/research workflows, not required to launch web_app.api.
+ImageIO==2.37.4
+matplotlib==3.11.2
+PIMS==0.7
+pyvo==1.9.1
+dask-image==2026.5.0

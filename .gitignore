@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.cronoscope_cache/
+*.log
+tmp/
+temp/
+.DS_Store

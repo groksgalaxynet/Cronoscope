@@ -1,0 +1,1 @@
+.target-name,.target-resolution{grid-column:1/-1}.target-name button{justify-self:start}.target-resolution{padding:.45rem .55rem;border-left:3px solid var(--line);color:var(--muted);font-size:.78rem}.target-resolution.resolved{border-color:var(--a);color:var(--ink)}.target-resolution.error{border-color:var(--bad);color:var(--bad)}

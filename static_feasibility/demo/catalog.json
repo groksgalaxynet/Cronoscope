@@ -1,0 +1,936 @@
+{
+  "eligibility_counts": {
+    "BLOCKED": 2,
+    "FULL STATIC": 12,
+    "GEOMETRY ONLY": 5
+  },
+  "featured_track_id": "5122",
+  "offline_contract": "Catalog and target assets are static exports from frozen records and cached FITS only. Browser operation has no API, archive, Horizons, or detector dependency.",
+  "provenance": {
+    "phase40b_population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+    "phase40b_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77",
+    "phase40d_evidence": "tests/test40d_frozen_population_detector_evaluation/frozen_population_detector_evidence.json",
+    "phase40d_sha256": "7ef5606aaf37b49ed0fdec93193e75c7ad2920df7fcd86d5ba2adfc5f815ce6f"
+  },
+  "schema": "cronoscope.phase41d.static-track-catalog.v1",
+  "track_count": 19,
+  "tracks": [
+    {
+      "a": {
+        "dec_deg": 0.04375,
+        "pixel_x": 1235.9277114376555,
+        "pixel_y": 616.9981284662257,
+        "ra_deg": 29.98837
+      },
+      "angular_displacement_deg": 0.3887927606703828,
+      "assets": {
+        "cutout_size_pixels": 201,
+        "limits_mjy_sr": [
+          0.17919123828411102,
+          0.32692497134208665
+        ],
+        "normalization": "Joint linear 2nd--98th percentile stretch across the A/B target cutouts.",
+        "target_a": "track-4748-a.png",
+        "target_b": "track-4748-b.png"
+      },
+      "b": {
+        "dec_deg": 0.37324,
+        "pixel_x": 1418.2060588271886,
+        "pixel_y": 358.50721911941764,
+        "ra_deg": 30.19476
+      },
+      "elapsed_seconds": 181533.0489985412,
+      "eligibility": "FULL STATIC",
+      "epoch_a_utc": "2026-01-08T04:59:07.965",
+      "epoch_b_utc": "2026-01-10T07:24:41.014",
+      "field": "FIELD_01",
+      "horizons_observer": "500@-163182",
+      "id": "4748",
+      "label": "4748 Tokiwagozen (1989 WV)",
+      "observation_a": "2026W02_1A_0650_4",
+      "observation_b": "2026W02_2A_0404_1",
+      "products": {
+        "a": "level2_2026W02_1A_0650_4D3_spx_l2b-v23-2026-009.fits",
+        "b": "level2_2026W02_2A_0404_1D3_spx_l2b-v23-2026-012.fits",
+        "cached_a_sha256": "85387f5f520cb3caa44a0a3128b32fa573bb82047f74723120f3752fa82d706b",
+        "cached_b_sha256": "e2a6d32000faec4fff3e0cb2aea48f31aecb515301b0fb7a1811f0ed34aeca20"
+      },
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Both cached D3 FITS products, WCS, and WCS-WAVE are available.",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 100.0
+      },
+      "wavelength": {
+        "a_bandwidth_um": 0.054481888046536316,
+        "a_um": 2.1450193521778553,
+        "b_bandwidth_um": 0.05629231009954977,
+        "b_um": 2.2601047854618685
+      }
+    },
+    {
+      "a": {
+        "dec_deg": -2.32737,
+        "pixel_x": 308.3980276871294,
+        "pixel_y": 1777.8539307545846,
+        "ra_deg": 29.20697
+      },
+      "angular_displacement_deg": 0.685074978778278,
+      "assets": {
+        "cutout_size_pixels": 201,
+        "limits_mjy_sr": [
+          0.2286609673500061,
+          0.4136965084075914
+        ],
+        "normalization": "Joint linear 2nd--98th percentile stretch across the A/B target cutouts.",
+        "target_a": "5122-target-a.png",
+        "target_b": "5122-target-b.png"
+      },
+      "b": {
+        "dec_deg": -1.84783,
+        "pixel_x": 675.6700333749309,
+        "pixel_y": 1494.1076575317607,
+        "ra_deg": 29.69655
+      },
+      "elapsed_seconds": 181533.0489985412,
+      "eligibility": "FULL STATIC",
+      "epoch_a_utc": "2026-01-08T04:59:07.965",
+      "epoch_b_utc": "2026-01-10T07:24:41.014",
+      "field": "FIELD_01",
+      "horizons_observer": "500@-163182",
+      "id": "5122",
+      "label": "5122 Mucha (1989 AZ1)",
+      "observation_a": "2026W02_1A_0650_4",
+      "observation_b": "2026W02_2A_0404_1",
+      "products": {
+        "a": "level2_2026W02_1A_0650_4D3_spx_l2b-v23-2026-009.fits",
+        "b": "level2_2026W02_2A_0404_1D3_spx_l2b-v23-2026-012.fits",
+        "cached_a_sha256": "85387f5f520cb3caa44a0a3128b32fa573bb82047f74723120f3752fa82d706b",
+        "cached_b_sha256": "e2a6d32000faec4fff3e0cb2aea48f31aecb515301b0fb7a1811f0ed34aeca20"
+      },
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Both cached D3 FITS products, WCS, and WCS-WAVE are available.",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 73.828125
+      },
+      "wavelength": {
+        "a_bandwidth_um": 0.04073825389243426,
+        "a_um": 1.710342894633379,
+        "b_bandwidth_um": 0.044447618001213426,
+        "b_um": 1.8016671421068007
+      }
+    },
+    {
+      "a": {
+        "dec_deg": 0.42656,
+        "pixel_x": 1832.439309448876,
+        "pixel_y": 581.0783618028013,
+        "ra_deg": 30.93336
+      },
+      "angular_displacement_deg": 0.3182054526376407,
+      "b": {
+        "dec_deg": 0.60205,
+        "pixel_x": 2014.195472919563,
+        "pixel_y": 418.1647036756703,
+        "ra_deg": 31.19881
+      },
+      "elapsed_seconds": 181533.0489985412,
+      "eligibility": "GEOMETRY ONLY",
+      "epoch_a_utc": "2026-01-08T04:59:07.965",
+      "epoch_b_utc": "2026-01-10T07:24:41.014",
+      "field": "FIELD_01",
+      "horizons_observer": "500@-163182",
+      "id": "5173",
+      "label": "5173 Stjerneborg (1988 EM1)",
+      "observation_a": "2026W02_1A_0650_4",
+      "observation_b": "2026W02_2A_0404_1",
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Static image package unavailable from local cache: predicted position near image edge",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 92.96875
+      }
+    },
+    {
+      "a": {
+        "dec_deg": -0.33898,
+        "pixel_x": 403.6746577155819,
+        "pixel_y": 565.031839019471,
+        "ra_deg": 28.61494
+      },
+      "angular_displacement_deg": 0.37018754367897816,
+      "assets": {
+        "cutout_size_pixels": 201,
+        "limits_mjy_sr": [
+          0.18671570956707,
+          0.343723527789116
+        ],
+        "normalization": "Joint linear 2nd--98th percentile stretch across the A/B target cutouts.",
+        "target_a": "track-9013-a.png",
+        "target_b": "track-9013-b.png"
+      },
+      "b": {
+        "dec_deg": -0.12863,
+        "pixel_x": 614.2873395034057,
+        "pixel_y": 393.14417321241217,
+        "ra_deg": 28.91956
+      },
+      "elapsed_seconds": 181533.0489985412,
+      "eligibility": "FULL STATIC",
+      "epoch_a_utc": "2026-01-08T04:59:07.965",
+      "epoch_b_utc": "2026-01-10T07:24:41.014",
+      "field": "FIELD_01",
+      "horizons_observer": "500@-163182",
+      "id": "9013",
+      "label": "9013 Sansaturio (1985 PA1)",
+      "observation_a": "2026W02_1A_0650_4",
+      "observation_b": "2026W02_2A_0404_1",
+      "products": {
+        "a": "level2_2026W02_1A_0650_4D3_spx_l2b-v23-2026-009.fits",
+        "b": "level2_2026W02_2A_0404_1D3_spx_l2b-v23-2026-012.fits",
+        "cached_a_sha256": "85387f5f520cb3caa44a0a3128b32fa573bb82047f74723120f3752fa82d706b",
+        "cached_b_sha256": "e2a6d32000faec4fff3e0cb2aea48f31aecb515301b0fb7a1811f0ed34aeca20"
+      },
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Both cached D3 FITS products, WCS, and WCS-WAVE are available.",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 96.875
+      },
+      "wavelength": {
+        "a_bandwidth_um": 0.0547560200668267,
+        "a_um": 2.1794565220819333,
+        "b_bandwidth_um": 0.05617032281539834,
+        "b_um": 2.249583719459517
+      }
+    },
+    {
+      "a": {
+        "dec_deg": 10.3047,
+        "pixel_x": 1208.4406950101147,
+        "pixel_y": 233.07367796189052,
+        "ra_deg": 91.80323
+      },
+      "angular_displacement_deg": 0.2099961189008473,
+      "b": {
+        "dec_deg": 10.41057,
+        "pixel_x": 1314.2409537050944,
+        "pixel_y": 51.90152706689618,
+        "ra_deg": 91.98759
+      },
+      "elapsed_seconds": 122765.13498241547,
+      "eligibility": "GEOMETRY ONLY",
+      "epoch_a_utc": "2026-03-15T04:49:04.256",
+      "epoch_b_utc": "2026-03-16T14:55:09.391",
+      "field": "FIELD_02",
+      "horizons_observer": "500@-163182",
+      "id": "737",
+      "label": "737 Arequipa (A912 XC)",
+      "observation_a": "2026W11_2A_0532_4",
+      "observation_b": "2026W12_1A_0116_1",
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Static image package unavailable from local cache: predicted position near image edge",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 73.828125
+      }
+    },
+    {
+      "a": {
+        "dec_deg": 9.75048,
+        "pixel_x": 1144.2730374714033,
+        "pixel_y": 560.6569308807401,
+        "ra_deg": 91.69235
+      },
+      "angular_displacement_deg": 0.21719348075720288,
+      "assets": {
+        "cutout_size_pixels": 201,
+        "limits_mjy_sr": [
+          0.18653474062681197,
+          1.503670856952667
+        ],
+        "normalization": "Joint linear 2nd--98th percentile stretch across the A/B target cutouts.",
+        "target_a": "track-3487-a.png",
+        "target_b": "track-3487-b.png"
+      },
+      "b": {
+        "dec_deg": 9.85337,
+        "pixel_x": 1255.8406318576226,
+        "pixel_y": 381.24741599979853,
+        "ra_deg": 91.88646
+      },
+      "elapsed_seconds": 122765.13498241547,
+      "eligibility": "FULL STATIC",
+      "epoch_a_utc": "2026-03-15T04:49:04.256",
+      "epoch_b_utc": "2026-03-16T14:55:09.391",
+      "field": "FIELD_02",
+      "horizons_observer": "500@-163182",
+      "id": "3487",
+      "label": "3487 Edgeworth (1978 UF)",
+      "observation_a": "2026W11_2A_0532_4",
+      "observation_b": "2026W12_1A_0116_1",
+      "products": {
+        "a": "level2_2026W11_2A_0532_4D3_spx_l2b-v24-2026-094.fits",
+        "b": "level2_2026W12_1A_0116_1D3_spx_l2b-v24-2026-082.fits",
+        "cached_a_sha256": "9fd7b9ca730265059e586b02c091271c7570edc67b9865352cf01a9cbb7b1e01",
+        "cached_b_sha256": "dfbdc2a80da2d88bd2b28a56ad3c37a536a32dfd306a021aec8c4cb4f286cbd9"
+      },
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Both cached D3 FITS products, WCS, and WCS-WAVE are available.",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 94.921875
+      },
+      "wavelength": {
+        "a_bandwidth_um": 0.05496030758535672,
+        "a_um": 2.169822401139729,
+        "b_bandwidth_um": 0.05579050487534046,
+        "b_um": 2.2483076578061865
+      }
+    },
+    {
+      "a": {
+        "dec_deg": 8.99979,
+        "pixel_x": 1034.6926296126549,
+        "pixel_y": 1004.5347823825979,
+        "ra_deg": 91.50395
+      },
+      "angular_displacement_deg": 0.2601924820863735,
+      "assets": {
+        "cutout_size_pixels": 201,
+        "limits_mjy_sr": [
+          0.20157468527555467,
+          1.9555152225494365
+        ],
+        "normalization": "Joint linear 2nd--98th percentile stretch across the A/B target cutouts.",
+        "target_a": "track-17529-a.png",
+        "target_b": "track-17529-b.png"
+      },
+      "b": {
+        "dec_deg": 9.10521,
+        "pixel_x": 1173.4564333639266,
+        "pixel_y": 822.985482606468,
+        "ra_deg": 91.74483
+      },
+      "elapsed_seconds": 122765.13498241547,
+      "eligibility": "FULL STATIC",
+      "epoch_a_utc": "2026-03-15T04:49:04.256",
+      "epoch_b_utc": "2026-03-16T14:55:09.391",
+      "field": "FIELD_02",
+      "horizons_observer": "500@-163182",
+      "id": "17529",
+      "label": "17529 (1993 FJ23)",
+      "observation_a": "2026W11_2A_0532_4",
+      "observation_b": "2026W12_1A_0116_1",
+      "products": {
+        "a": "level2_2026W11_2A_0532_4D3_spx_l2b-v24-2026-094.fits",
+        "b": "level2_2026W12_1A_0116_1D3_spx_l2b-v24-2026-082.fits",
+        "cached_a_sha256": "9fd7b9ca730265059e586b02c091271c7570edc67b9865352cf01a9cbb7b1e01",
+        "cached_b_sha256": "dfbdc2a80da2d88bd2b28a56ad3c37a536a32dfd306a021aec8c4cb4f286cbd9"
+      },
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Both cached D3 FITS products, WCS, and WCS-WAVE are available.",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 92.96875
+      },
+      "wavelength": {
+        "a_bandwidth_um": 0.04884784730842865,
+        "a_um": 1.984952651600917,
+        "b_bandwidth_um": 0.051577950640113016,
+        "b_um": 2.0576170675571244
+      }
+    },
+    {
+      "a": {
+        "dec_deg": 8.49679,
+        "pixel_x": 1645.7673939709352,
+        "pixel_y": 1272.4281196631564,
+        "ra_deg": 92.56352
+      },
+      "angular_displacement_deg": 0.4029349732118752,
+      "assets": {
+        "cutout_size_pixels": 201,
+        "limits_mjy_sr": [
+          0.2067749333381653,
+          2.1279055309295685
+        ],
+        "normalization": "Joint linear 2nd--98th percentile stretch across the A/B target cutouts.",
+        "target_a": "track-19651-a.png",
+        "target_b": "track-19651-b.png"
+      },
+      "b": {
+        "dec_deg": 8.69272,
+        "pixel_x": 1851.1883466118122,
+        "pixel_y": 1033.4498286148885,
+        "ra_deg": 92.91961
+      },
+      "elapsed_seconds": 122765.13498241547,
+      "eligibility": "FULL STATIC",
+      "epoch_a_utc": "2026-03-15T04:49:04.256",
+      "epoch_b_utc": "2026-03-16T14:55:09.391",
+      "field": "FIELD_02",
+      "horizons_observer": "500@-163182",
+      "id": "19651",
+      "label": "19651 (1999 RC112)",
+      "observation_a": "2026W11_2A_0532_4",
+      "observation_b": "2026W12_1A_0116_1",
+      "products": {
+        "a": "level2_2026W11_2A_0532_4D3_spx_l2b-v24-2026-094.fits",
+        "b": "level2_2026W12_1A_0116_1D3_spx_l2b-v24-2026-082.fits",
+        "cached_a_sha256": "9fd7b9ca730265059e586b02c091271c7570edc67b9865352cf01a9cbb7b1e01",
+        "cached_b_sha256": "dfbdc2a80da2d88bd2b28a56ad3c37a536a32dfd306a021aec8c4cb4f286cbd9"
+      },
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Both cached D3 FITS products, WCS, and WCS-WAVE are available.",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 73.828125
+      },
+      "wavelength": {
+        "a_bandwidth_um": 0.04635846943286155,
+        "a_um": 1.8856803356210992,
+        "b_bandwidth_um": 0.04800377638336195,
+        "b_um": 1.9826430866532405
+      }
+    },
+    {
+      "a": {
+        "dec_deg": -10.10105,
+        "pixel_x": 89.79011912661471,
+        "pixel_y": 1311.0617789945527,
+        "ra_deg": 152.88432
+      },
+      "angular_displacement_deg": 0.02689512589425247,
+      "b": {
+        "dec_deg": -10.1183,
+        "pixel_x": 73.06986500432964,
+        "pixel_y": 1192.4691567570205,
+        "ra_deg": 152.90528
+      },
+      "elapsed_seconds": 16854.6350015793,
+      "eligibility": "GEOMETRY ONLY",
+      "epoch_a_utc": "2025-11-28T20:11:28.188",
+      "epoch_b_utc": "2025-11-29T00:52:22.823",
+      "field": "FIELD_03",
+      "horizons_observer": "500@-163182",
+      "id": "105522",
+      "label": "105522 (2000 RH25)",
+      "observation_a": "2025W48_2A_0300_4",
+      "observation_b": "2025W48_2A_0346_1",
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Static image package unavailable from local cache: predicted position near image edge",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 78.125
+      }
+    },
+    {
+      "a": {
+        "dec_deg": -8.28578,
+        "pixel_x": 1442.2634867843321,
+        "pixel_y": 1831.6826731584497,
+        "ra_deg": 151.12339
+      },
+      "angular_displacement_deg": 0.03283762451455423,
+      "assets": {
+        "cutout_size_pixels": 201,
+        "limits_mjy_sr": [
+          0.2183920580148697,
+          0.46099055886268553
+        ],
+        "normalization": "Joint linear 2nd--98th percentile stretch across the A/B target cutouts.",
+        "target_a": "track-175348-a.png",
+        "target_b": "track-175348-b.png"
+      },
+      "b": {
+        "dec_deg": -8.31463,
+        "pixel_x": 1426.30260554619,
+        "pixel_y": 1706.7774086658762,
+        "ra_deg": 151.13924
+      },
+      "elapsed_seconds": 16854.6350015793,
+      "eligibility": "FULL STATIC",
+      "epoch_a_utc": "2025-11-28T20:11:28.188",
+      "epoch_b_utc": "2025-11-29T00:52:22.823",
+      "field": "FIELD_03",
+      "horizons_observer": "500@-163182",
+      "id": "175348",
+      "label": "175348 (2005 OO2)",
+      "observation_a": "2025W48_2A_0300_4",
+      "observation_b": "2025W48_2A_0346_1",
+      "products": {
+        "a": "level2_2025W48_2A_0300_4D3_spx_l2b-v20-2025-337.fits",
+        "b": "level2_2025W48_2A_0346_1D3_spx_l2b-v20-2025-337.fits",
+        "cached_a_sha256": "83f069fc56e4fa904bff3473bb384522c7e23ddcca4a619c0741692d8e8d2d98",
+        "cached_b_sha256": "910c44326d00e68b67ea73ba8472a9cf5c0855567012cc80c712d879a52fa495"
+      },
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Both cached D3 FITS products, WCS, and WCS-WAVE are available.",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 78.90625
+      },
+      "wavelength": {
+        "a_bandwidth_um": 0.04041612501769543,
+        "a_um": 1.680217760455357,
+        "b_bandwidth_um": 0.041747598525659055,
+        "b_um": 1.7235660307455118
+      }
+    },
+    {
+      "a": {
+        "dec_deg": -9.69407,
+        "pixel_x": 361.6470554687194,
+        "pixel_y": 1445.5974172602769,
+        "ra_deg": 152.54943
+      },
+      "angular_displacement_deg": 0.04541142546120437,
+      "assets": {
+        "cutout_size_pixels": 201,
+        "limits_mjy_sr": [
+          0.19571380585432052,
+          0.4207833522558205
+        ],
+        "normalization": "Joint linear 2nd--98th percentile stretch across the A/B target cutouts.",
+        "target_a": "track-177020-a.png",
+        "target_b": "track-177020-b.png"
+      },
+      "b": {
+        "dec_deg": -9.73093,
+        "pixel_x": 337.3495622706927,
+        "pixel_y": 1318.2583551943853,
+        "ra_deg": 152.57634
+      },
+      "elapsed_seconds": 16854.6350015793,
+      "eligibility": "FULL STATIC",
+      "epoch_a_utc": "2025-11-28T20:11:28.188",
+      "epoch_b_utc": "2025-11-29T00:52:22.823",
+      "field": "FIELD_03",
+      "horizons_observer": "500@-163182",
+      "id": "177020",
+      "label": "177020 (2003 BW61)",
+      "observation_a": "2025W48_2A_0300_4",
+      "observation_b": "2025W48_2A_0346_1",
+      "products": {
+        "a": "level2_2025W48_2A_0300_4D3_spx_l2b-v20-2025-337.fits",
+        "b": "level2_2025W48_2A_0346_1D3_spx_l2b-v20-2025-337.fits",
+        "cached_a_sha256": "83f069fc56e4fa904bff3473bb384522c7e23ddcca4a619c0741692d8e8d2d98",
+        "cached_b_sha256": "910c44326d00e68b67ea73ba8472a9cf5c0855567012cc80c712d879a52fa495"
+      },
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Both cached D3 FITS products, WCS, and WCS-WAVE are available.",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 78.125
+      },
+      "wavelength": {
+        "a_bandwidth_um": 0.04473998212937842,
+        "a_um": 1.8278686080919915,
+        "b_bandwidth_um": 0.04587479716887612,
+        "b_um": 1.876176830152425
+      }
+    },
+    {
+      "a": {
+        "dec_deg": -9.25795,
+        "pixel_x": 676.1933781541524,
+        "pixel_y": 1577.1869741996097,
+        "ra_deg": 152.14637
+      },
+      "angular_displacement_deg": 0.039983272098380346,
+      "assets": {
+        "cutout_size_pixels": 201,
+        "limits_mjy_sr": [
+          0.2016539216041565,
+          0.41432619690895256
+        ],
+        "normalization": "Joint linear 2nd--98th percentile stretch across the A/B target cutouts.",
+        "target_a": "track-215451-a.png",
+        "target_b": "track-215451-b.png"
+      },
+      "b": {
+        "dec_deg": -9.29262,
+        "pixel_x": 656.1384991404516,
+        "pixel_y": 1449.6354233587629,
+        "ra_deg": 152.16655
+      },
+      "elapsed_seconds": 16854.6350015793,
+      "eligibility": "FULL STATIC",
+      "epoch_a_utc": "2025-11-28T20:11:28.188",
+      "epoch_b_utc": "2025-11-29T00:52:22.823",
+      "field": "FIELD_03",
+      "horizons_observer": "500@-163182",
+      "id": "215451",
+      "label": "215451 (2002 OH19)",
+      "observation_a": "2025W48_2A_0300_4",
+      "observation_b": "2025W48_2A_0346_1",
+      "products": {
+        "a": "level2_2025W48_2A_0300_4D3_spx_l2b-v20-2025-337.fits",
+        "b": "level2_2025W48_2A_0346_1D3_spx_l2b-v20-2025-337.fits",
+        "cached_a_sha256": "83f069fc56e4fa904bff3473bb384522c7e23ddcca4a619c0741692d8e8d2d98",
+        "cached_b_sha256": "910c44326d00e68b67ea73ba8472a9cf5c0855567012cc80c712d879a52fa495"
+      },
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Both cached D3 FITS products, WCS, and WCS-WAVE are available.",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 78.125
+      },
+      "wavelength": {
+        "a_bandwidth_um": 0.04341028313125397,
+        "a_um": 1.7713877378294816,
+        "b_bandwidth_um": 0.044989980422817336,
+        "b_um": 1.8190455231074427
+      }
+    },
+    {
+      "a": {
+        "dec_deg": -14.07777,
+        "pixel_x": 1978.8422157118696,
+        "pixel_y": 1847.3040944651857,
+        "ra_deg": 267.67217
+      },
+      "angular_displacement_deg": 0.0006095937855455153,
+      "b": {
+        "dec_deg": -14.07798,
+        "pixel_x": 1978.394218008159,
+        "pixel_y": 1732.8281054142096,
+        "ra_deg": 267.67276
+      },
+      "elapsed_seconds": 128.93100518267602,
+      "eligibility": "GEOMETRY ONLY",
+      "epoch_a_utc": "2026-03-30T18:41:25.000",
+      "epoch_b_utc": "2026-03-30T18:43:33.931",
+      "field": "FIELD_05",
+      "horizons_observer": "500@-163182",
+      "id": "1216",
+      "label": "1216 Askania (1932 BL)",
+      "observation_a": "2026W14_1A_0182_1",
+      "observation_b": "2026W14_1A_0182_2",
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Static image package unavailable from local cache: predicted position near image edge",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 84.765625
+      }
+    },
+    {
+      "a": {
+        "dec_deg": -17.11989,
+        "pixel_x": 172.0670681635204,
+        "pixel_y": 140.10826424535227,
+        "ra_deg": 270.88153
+      },
+      "angular_displacement_deg": 0.0004229395068810839,
+      "b": {
+        "dec_deg": -17.11999,
+        "pixel_x": 170.81924167522132,
+        "pixel_y": 24.60905056854483,
+        "ra_deg": 270.88196
+      },
+      "elapsed_seconds": 128.93100518267602,
+      "eligibility": "GEOMETRY ONLY",
+      "epoch_a_utc": "2026-03-30T18:41:25.000",
+      "epoch_b_utc": "2026-03-30T18:43:33.931",
+      "field": "FIELD_05",
+      "horizons_observer": "500@-163182",
+      "id": "6218",
+      "label": "6218 Mizushima (1977 EG7)",
+      "observation_a": "2026W14_1A_0182_1",
+      "observation_b": "2026W14_1A_0182_2",
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Static image package unavailable from local cache: predicted position near image edge",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 84.765625
+      }
+    },
+    {
+      "a": {
+        "dec_deg": -14.69135,
+        "pixel_x": 1680.9954733859129,
+        "pixel_y": 1506.4976262204004,
+        "ra_deg": 268.20044
+      },
+      "angular_displacement_deg": 0.00031034055486102143,
+      "assets": {
+        "cutout_size_pixels": 201,
+        "limits_mjy_sr": [
+          0.7109651041030883,
+          17.16776126861563
+        ],
+        "normalization": "Joint linear 2nd--98th percentile stretch across the A/B target cutouts.",
+        "target_a": "track-8686-a.png",
+        "target_b": "track-8686-b.png"
+      },
+      "b": {
+        "dec_deg": -14.69146,
+        "pixel_x": 1680.5537909051388,
+        "pixel_y": 1391.9890319148117,
+        "ra_deg": 268.20074
+      },
+      "elapsed_seconds": 128.93100518267602,
+      "eligibility": "FULL STATIC",
+      "epoch_a_utc": "2026-03-30T18:41:25.000",
+      "epoch_b_utc": "2026-03-30T18:43:33.931",
+      "field": "FIELD_05",
+      "horizons_observer": "500@-163182",
+      "id": "8686",
+      "label": "8686 Akenside (1992 OX1)",
+      "observation_a": "2026W14_1A_0182_1",
+      "observation_b": "2026W14_1A_0182_2",
+      "products": {
+        "a": "level2_2026W14_1A_0182_1D3_spx_l2b-v24-2026-093.fits",
+        "b": "level2_2026W14_1A_0182_2D3_spx_l2b-v24-2026-093.fits",
+        "cached_a_sha256": "72fcecc9a707035e0a0519049f0fc276a82d0e9229a7b0cd80aaf700517f8ebd",
+        "cached_b_sha256": "419def77522b7c1e5e24fad63c1651160f15e83be4b8ecbc8de3687d573d9dce"
+      },
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Both cached D3 FITS products, WCS, and WCS-WAVE are available.",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 84.765625
+      },
+      "wavelength": {
+        "a_bandwidth_um": 0.04424105685114025,
+        "a_um": 1.7985478979150897,
+        "b_bandwidth_um": 0.04534238901751206,
+        "b_um": 1.840786378351424
+      }
+    },
+    {
+      "a": {
+        "dec_deg": -16.41518,
+        "pixel_x": 1559.8756994566966,
+        "pixel_y": 504.6600663426447,
+        "ra_deg": 268.41198
+      },
+      "angular_displacement_deg": 0.00041837173718858444,
+      "assets": {
+        "cutout_size_pixels": 201,
+        "limits_mjy_sr": [
+          0.8565889024734498,
+          20.768392944335815
+        ],
+        "normalization": "Joint linear 2nd--98th percentile stretch across the A/B target cutouts.",
+        "target_a": "track-9055-a.png",
+        "target_b": "track-9055-b.png"
+      },
+      "b": {
+        "dec_deg": -16.41525,
+        "pixel_x": 1559.2310603028438,
+        "pixel_y": 389.831867551949,
+        "ra_deg": 268.41241
+      },
+      "elapsed_seconds": 128.93100518267602,
+      "eligibility": "FULL STATIC",
+      "epoch_a_utc": "2026-03-30T18:41:25.000",
+      "epoch_b_utc": "2026-03-30T18:43:33.931",
+      "field": "FIELD_05",
+      "horizons_observer": "500@-163182",
+      "id": "9055",
+      "label": "9055 Edvardsson (1992 DP8)",
+      "observation_a": "2026W14_1A_0182_1",
+      "observation_b": "2026W14_1A_0182_2",
+      "products": {
+        "a": "level2_2026W14_1A_0182_1D3_spx_l2b-v24-2026-093.fits",
+        "b": "level2_2026W14_1A_0182_2D3_spx_l2b-v24-2026-093.fits",
+        "cached_a_sha256": "72fcecc9a707035e0a0519049f0fc276a82d0e9229a7b0cd80aaf700517f8ebd",
+        "cached_b_sha256": "419def77522b7c1e5e24fad63c1651160f15e83be4b8ecbc8de3687d573d9dce"
+      },
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Both cached D3 FITS products, WCS, and WCS-WAVE are available.",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 84.765625
+      },
+      "wavelength": {
+        "a_bandwidth_um": 0.054534796694191465,
+        "a_um": 2.197509179681247,
+        "b_bandwidth_um": 0.05605500530706578,
+        "b_um": 2.2475747190428783
+      }
+    },
+    {
+      "a": {
+        "dec_deg": 5.9434,
+        "pixel_x": 2002.764416553258,
+        "pixel_y": 634.2220194220315,
+        "ra_deg": 329.49922
+      },
+      "b": {
+        "dec_deg": 7.20497,
+        "pixel_x": 1389.0106834485366,
+        "pixel_y": 1203.9731113459575,
+        "ra_deg": 330.31135
+      },
+      "elapsed_seconds": 1237680.733017926,
+      "eligibility": "BLOCKED",
+      "epoch_a_utc": "2026-05-26T16:01:55.554",
+      "epoch_b_utc": "2026-06-09T23:49:56.287",
+      "field": "FIELD_06",
+      "horizons_observer": "500@-163182",
+      "id": "301879",
+      "label": "301879 (1997 HK13)",
+      "observation_a": "2026W22_1A_0262_1",
+      "observation_b": "2026W24_1A_0440_1",
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Frozen detector/provenance record unavailable."
+    },
+    {
+      "a": {
+        "dec_deg": 6.05018,
+        "pixel_x": 1514.0376723201841,
+        "pixel_y": 522.8743877287112,
+        "ra_deg": 330.36512
+      },
+      "angular_displacement_deg": 2.3358204034558714,
+      "assets": {
+        "cutout_size_pixels": 201,
+        "limits_mjy_sr": [
+          0.16051122546195984,
+          0.7554413902759557
+        ],
+        "normalization": "Joint linear 2nd--98th percentile stretch across the A/B target cutouts.",
+        "target_a": "track-321899-a.png",
+        "target_b": "track-321899-b.png"
+      },
+      "b": {
+        "dec_deg": 7.80579,
+        "pixel_x": 394.34365953282673,
+        "pixel_y": 1211.3997487012655,
+        "ra_deg": 331.91726
+      },
+      "elapsed_seconds": 1237680.733017926,
+      "eligibility": "FULL STATIC",
+      "epoch_a_utc": "2026-05-26T16:01:55.554",
+      "epoch_b_utc": "2026-06-09T23:49:56.287",
+      "field": "FIELD_06",
+      "horizons_observer": "500@-163182",
+      "id": "321899",
+      "label": "321899 (2010 TC7)",
+      "observation_a": "2026W22_1A_0262_1",
+      "observation_b": "2026W24_1A_0440_1",
+      "products": {
+        "a": "level2_2026W22_1A_0262_1D3_spx_l2b-v25-2026-150.fits",
+        "b": "level2_2026W24_1A_0440_1D3_spx_l2b-v25-2026-163.fits",
+        "cached_a_sha256": "310429fb5a215e78ea6e242cb972828494a952c44aa37254b414590b42c10ab2",
+        "cached_b_sha256": "3bf2cefdcf579d685d52a43a4f65aaa901f3ba9aa01416f9ffb5ddf2d981ac18"
+      },
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Both cached D3 FITS products, WCS, and WCS-WAVE are available.",
+      "research_evidence": {
+        "label": "Experimental research evidence \u2014 not a detection claim.",
+        "status": "AVAILABLE",
+        "v2_control_percentile": 98.046875
+      },
+      "wavelength": {
+        "a_bandwidth_um": 0.05427870694180355,
+        "a_um": 2.1886425682916943,
+        "b_bandwidth_um": 0.04664882446334324,
+        "b_um": 1.9153118357853836
+      }
+    },
+    {
+      "a": {
+        "dec_deg": 6.87182,
+        "pixel_x": 1233.4458903564541,
+        "pixel_y": 939.8264791988278,
+        "ra_deg": 330.54542
+      },
+      "b": {
+        "dec_deg": 7.37561,
+        "pixel_x": 47.70460997250992,
+        "pixel_y": 808.0770019223195,
+        "ra_deg": 332.73695
+      },
+      "elapsed_seconds": 1237680.733017926,
+      "eligibility": "BLOCKED",
+      "epoch_a_utc": "2026-05-26T16:01:55.554",
+      "epoch_b_utc": "2026-06-09T23:49:56.287",
+      "field": "FIELD_06",
+      "horizons_observer": "500@-163182",
+      "id": "323147",
+      "label": "323147 (2003 ER18)",
+      "observation_a": "2026W22_1A_0262_1",
+      "observation_b": "2026W24_1A_0440_1",
+      "provenance": {
+        "population": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+        "population_sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+      },
+      "reason": "Frozen detector/provenance record unavailable."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "targets": [
+    {
+      "id": "barnards-star",
+      "label": "Barnard's Star",
+      "status": "CATALOG-PREDICTED MOTION · TWO-EPOCH CONTEXT",
+      "epoch_a_utc": "2025-08-15T20:45:11.338",
+      "epoch_b_utc": "2026-05-05T01:59:28.744",
+      "observation_a": "2025W33_2C_0321_1D3",
+      "observation_b": "2026W19_1A_0403_1D3",
+      "assets": {"target_a": "nasa-barnard-a.png", "target_b": "nasa-barnard-b.png"},
+      "wavelength": {"label": "SPHEREx D3 · 1.63–2.43 μm"},
+      "looking_at": "Two SPHEREx observations of the sky around Barnard's Star, with its catalog-predicted location marked.",
+      "demonstrates": "The surrounding sky can be compared across epochs, but invalid target-center pixels prevent a reliable motion measurement. The predicted displacement is about 7.46 arcseconds (1.21 native pixels), not measured motion."
+    },
+    {
+      "id": "rw-aur",
+      "label": "RW Aurigae",
+      "status": "TWO-EPOCH CONTEXT",
+      "epoch_a_utc": "2025-09-11T16:15:33.968",
+      "epoch_b_utc": "2026-03-02T13:31:14.591",
+      "observation_a": "2025W37_2A_0051_1D3",
+      "observation_b": "2026W10_1A_0120_1D3",
+      "assets": {"target_a": "nasa-rw-aur-a.png", "target_b": "nasa-rw-aur-b.png"},
+      "wavelength": {"label": "SPHEREx D3 · 1.63–2.43 μm"},
+      "looking_at": "SPHEREx observations of the sky around the young variable star RW Aurigae.",
+      "demonstrates": "The observations provide a real two-epoch comparison, but the current quality flags and calibration limitations prevent a confirmed variability measurement."
+    },
+    {
+      "id": "r-draconis",
+      "label": "R Draconis",
+      "status": "INVALID TARGET PIXELS",
+      "epoch_a_utc": "2025-04-24T21:06:38.391",
+      "epoch_b_utc": "2026-05-06T01:12:31.213",
+      "observation_a": "2025W17_4B_0021_1D3",
+      "observation_b": "2026W19_1A_0762_3D3",
+      "assets": {"target_a": "nasa-r-draconis-a.png", "target_b": "nasa-r-draconis-b.png"},
+      "wavelength": {"label": "SPHEREx D3 · 1.63–2.43 μm"},
+      "looking_at": "Two SPHEREx observations around R Draconis, including bright surrounding signal and an invalid central region.",
+      "demonstrates": "The central measurements are unusable for reliable stellar photometry in these observations. The bright ring is flagged surrounding structure, not a resolved stellar image."
+    },
+    {
+      "id": "wise-0855",
+      "label": "WISE 0855",
+      "status": "LOW SIGNAL-TO-NOISE",
+      "epoch_a_utc": "2025-05-05T16:48:02.459",
+      "epoch_b_utc": "2026-05-11T02:18:44.662",
+      "observation_a": "2025W19_1B_0116_1D6",
+      "observation_b": "2026W20_1A_0033_1D6",
+      "assets": {"target_a": "nasa-wise-0855-a.png", "target_b": "nasa-wise-0855-b.png"},
+      "wavelength": {"label": "SPHEREx D6 · 4.41–5.01 μm"},
+      "looking_at": "Two infrared SPHEREx observations centred near the catalog-predicted position of the extremely faint object WISE 0855.",
+      "demonstrates": "The current observations are too noisy to establish a reliable detection or motion measurement. Formal local S/N was approximately 1.18 and 1.93."
+    },
+    {
+      "id": "epsilon-indi-b",
+      "label": "Epsilon Indi B",
+      "status": "IMAGERY PENDING · NO VALIDATED CUTOUT",
+      "looking_at": "A nearby brown-dwarf companion proposed as a NASA challenge target.",
+      "demonstrates": "No validated SPHEREx two-epoch cutout is packaged here: the prior cutout attempt returned an overlap error. Imagery is intentionally not substituted."
+    }
+  ]
+}

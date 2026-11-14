@@ -1,0 +1,139 @@
+{
+  "difference": {
+    "asset": "321899-difference.png",
+    "registered_new_prediction_on_a_grid": {
+      "frame": "A_REGISTERED_DIFFERENCE",
+      "x": 289.21239224573924,
+      "y": 1176.5690742147997
+    },
+    "valid_pixel_count": 3880861
+  },
+  "frozen_evidence": {
+    "both_sign_gate": true,
+    "control_count": 256,
+    "label": "Research evidence \u2014 not a detection claim.",
+    "sha256": "7ef5606aaf37b49ed0fdec93193e75c7ad2920df7fcd86d5ba2adfc5f815ce6f",
+    "source": "tests/test40d_frozen_population_detector_evaluation/frozen_population_detector_evidence.json",
+    "status": "AVAILABLE",
+    "v2_control_percentile": 98.046875
+  },
+  "horizons": {
+    "observer": "500@-163182",
+    "request": "tests/test40b_balanced_multipair_population/FIELD_06_321899.horizons_input.txt",
+    "request_sha256": "f3c003430e492301716866e88fd294424aa82e71a2bceb17ed34aedade79fbd0",
+    "response": "tests/test40b_balanced_multipair_population/FIELD_06_321899.horizons_raw.txt",
+    "response_sha256": "9726ef93fcd85cb546d85d8ff7d909668809543e4932ba4fbe173f6bafead769"
+  },
+  "motion": {
+    "angular_displacement_deg": 2.3358204034558714,
+    "apparent_angular_rate_deg_per_day": 0.16305891937615247,
+    "difference_frame": "registered B minus A on the A celestial WCS/pixel grid",
+    "elapsed_seconds": 1237680.733017926,
+    "warning": "Predicted Horizons positions and track are not measured-image detections."
+  },
+  "observations": [
+    {
+      "archive_detector": "SPHEREx-D3",
+      "archive_wavelength_um": [
+        1.6301,
+        2.4346
+      ],
+      "cached_fits": {
+        "bytes": 71637120,
+        "filename": "2026W22_1A_0262_1_SPHEREx-D3_49d038deb075c8c0.fits",
+        "sha256": "310429fb5a215e78ea6e242cb972828494a952c44aa37254b414590b42c10ab2"
+      },
+      "display": {
+        "cutout_bounds_native_pixels": [
+          1334,
+          343,
+          1694,
+          703
+        ],
+        "overlay": "Gold crosshair is the frozen Horizons-predicted location, not a measured detection.",
+        "science_asset": "321899-a.png",
+        "wavelength_asset": "321899-wavelength-a.png"
+      },
+      "fits_product_filename": "level2_2026W22_1A_0262_1D3_spx_l2b-v25-2026-150.fits",
+      "observation_id": "2026W22_1A_0262_1",
+      "predicted_native_pixel": {
+        "frame": "A_NATIVE",
+        "x": 1514.0376723201841,
+        "y": 522.8743877287112
+      },
+      "predicted_sky_coordinates_deg": {
+        "dec": 6.05018,
+        "ra": 330.36512,
+        "source": "JPL Horizons frozen, observer 500@-163182"
+      },
+      "role": "A",
+      "utc_epoch": "2026-05-26T16:01:55.554",
+      "wcs_wave": {
+        "bandwidth_um": 0.05427870694180355,
+        "mapping_source": "FITS IMAGE alternate WCS key W / WAVE-TAB",
+        "status": "VALID",
+        "wavelength_um": 2.1886425682916943
+      }
+    },
+    {
+      "archive_detector": "SPHEREx-D3",
+      "archive_wavelength_um": [
+        1.6301,
+        2.4346
+      ],
+      "cached_fits": {
+        "bytes": 71637120,
+        "filename": "2026W24_1A_0440_1_SPHEREx-D3_5b4ec6fb43f98bb5.fits",
+        "sha256": "3bf2cefdcf579d685d52a43a4f65aaa901f3ba9aa01416f9ffb5ddf2d981ac18"
+      },
+      "display": {
+        "cutout_bounds_native_pixels": [
+          214,
+          1031,
+          574,
+          1391
+        ],
+        "overlay": "Gold crosshair is the frozen Horizons-predicted location, not a measured detection.",
+        "science_asset": "321899-b.png",
+        "wavelength_asset": "321899-wavelength-b.png"
+      },
+      "fits_product_filename": "level2_2026W24_1A_0440_1D3_spx_l2b-v25-2026-163.fits",
+      "observation_id": "2026W24_1A_0440_1",
+      "predicted_native_pixel": {
+        "frame": "B_NATIVE",
+        "x": 394.34365953282673,
+        "y": 1211.3997487012655
+      },
+      "predicted_sky_coordinates_deg": {
+        "dec": 7.80579,
+        "ra": 331.91726,
+        "source": "JPL Horizons frozen, observer 500@-163182"
+      },
+      "role": "B",
+      "utc_epoch": "2026-06-09T23:49:56.287",
+      "wcs_wave": {
+        "bandwidth_um": 0.04664882446334324,
+        "mapping_source": "FITS IMAGE alternate WCS key W / WAVE-TAB",
+        "status": "VALID",
+        "wavelength_um": 1.9153118357853836
+      }
+    }
+  ],
+  "offline_contract": "All displayed images and values are committed static assets. Browser operation performs no API, IRSA, Horizons, or detector calls.",
+  "schema": "cronoscope.phase41b.static-observation-demo.v1",
+  "source_artifacts": {
+    "phase40b_population": {
+      "path": "tests/test40b_balanced_multipair_population/balanced_multipair_population.json",
+      "sha256": "b8c48f7e8018b3c738bf03474badb8c6915f9d97870915f3184f232fb2406a77"
+    },
+    "phase40e_postfreeze": {
+      "path": "tests/test40e_postfreeze_analysis/postfreeze_analysis.json",
+      "sha256": "779474c195e8270b49ee0f40e044234c88f5915b2f2a5e3405d5c9d7985098ca"
+    }
+  },
+  "target": {
+    "id": "321899",
+    "label": "321899 (2010 TC7)",
+    "type": "known_moving_object"
+  }
+}

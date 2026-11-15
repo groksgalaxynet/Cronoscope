@@ -17,7 +17,7 @@ from astropy.io import fits
 from PIL import Image, ImageDraw
 
 from cronoscope_pipeline.comparison import FROZEN_TEST5_TEST7_V1
-from cronoscope_pipeline.discovery import DEFAULT_COLLECTION, SUPPORTED_COLLECTIONS
+from cronoscope_pipeline.discovery import DEFAULT_COLLECTION, SUPPORTED_COLLECTIONS, supported_collections_text
 from cronoscope_pipeline.fits_normalization import normalize_fits_product
 from cronoscope_pipeline.models import FitsValidation, ObservationRecord, RetrievalResult, RetrievalStatus
 from cronoscope_pipeline.orchestrator import ORCHESTRATOR_VERSION, CronoscopeOrchestrator
@@ -383,9 +383,9 @@ class CronoscopeWebApplication:
                              warnings=["No search was run; narrow the requested sky area."])
         requested_collection = payload.get("collection", DEFAULT_COLLECTION)
         if mode != "LIVE":
-            requested_collection = DEFAULT_COLLECTION
+            requested_collection = "spherex_qr2"
         if not isinstance(requested_collection, str) or requested_collection not in SUPPORTED_COLLECTIONS:
-            return _envelope("search_sky", "INVALID_COLLECTION", errors=["collection must be one of: spherex_qr2, spherex_qr3"])
+            return _envelope("search_sky", "INVALID_COLLECTION", errors=[f"collection must be one of: {supported_collections_text()}"])
         result = orchestrator.search_sky(ra, dec, radius, label="LOCAL_REPLAY" if mode == "LOCAL_REPLAY" else None,
                                          collection=requested_collection)
         if result["status"] != "SUCCESS":
@@ -416,7 +416,7 @@ class CronoscopeWebApplication:
         orchestrator = _local_real_target_orchestrator(target_id)
         if orchestrator is None:
             return _envelope("local_real_target_search", "LOCAL_PRODUCT_UNAVAILABLE", errors=["The retained local FITS product is unavailable."])
-        result = orchestrator.search_sky(0.0, 0.0, 0.0001, label=f"LOCAL_REAL_{target_id}")
+        result = orchestrator.search_sky(0.0, 0.0, 0.0001, label=f"LOCAL_REAL_{target_id}", collection="spherex_qr2")
         ids = [product["product_id"] for product in result.get("data", {}).get("products", [])]
         self._owners.update({product_id: orchestrator for product_id in ids})
         result["operation"] = "local_real_target_search"

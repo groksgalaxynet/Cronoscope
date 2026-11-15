@@ -38,7 +38,8 @@ def public_product_id(record: ObservationRecord) -> str:
     """Return an opaque, collision-resistant ID; never a cache filename/path."""
     material = "\x1f".join((record.raw_identifiers.get("obs_publisher_did", ""), record.observation_id or "",
                               record.band_label or "", repr(record.wavelength_min_m), repr(record.wavelength_max_m),
-                              record.access_url or ""))
+                              record.access_url or "", repr(record.query_ra_deg), repr(record.query_dec_deg),
+                              repr(record.query_radius_deg)))
     return "spx_" + hashlib.sha256(material.encode("utf-8")).hexdigest()[:24]
 
 
@@ -46,16 +47,18 @@ def _product_summary(record: ObservationRecord) -> dict[str, Any]:
     return {"product_id": public_product_id(record), "observation_id": record.observation_id, "time_start_mjd": record.t_min_mjd,
             "time_end_mjd": record.t_max_mjd, "detector": record.band_label,
             "wavelength_min_m": record.wavelength_min_m, "wavelength_max_m": record.wavelength_max_m,
-            "collection": record.collection,
+            "collection": record.collection, "access_estsize_kb": record.access_estsize_kb,
+            "publisher_id": record.raw_identifiers.get("obs_publisher_did"),
             "data_product_type": record.data_product_type, "access_format": record.access_format}
 
 
 def release_compatibility(a: ObservationRecord, b: ObservationRecord) -> str | None:
     """Return a release-policy error before retrieval or scientific work."""
     if a.collection not in SUPPORTED_COLLECTIONS or b.collection not in SUPPORTED_COLLECTIONS:
-        return "Comparison requires trusted QR2 or QR3 observation provenance."
+        return "Comparison requires trusted DR1, QR2, or QR3 observation provenance."
     if a.collection != b.collection:
-        return "QR2 and QR3 use different processing/calibration characteristics and cannot currently be compared in Cronoscope."
+        return (f"Cross-collection comparison is blocked: {a.collection} and {b.collection} "
+                "cannot currently be compared in Cronoscope without dedicated validation.")
     return None
 
 
@@ -99,6 +102,11 @@ class CronoscopeOrchestrator:
         except (DiscoveryError, ValueError) as exc:
             return self._envelope("search_sky", "DISCOVERY_ERROR", warnings=[], errors=[str(exc)], timings={"discovery_seconds": time.perf_counter() - started})
         discovery_seconds = time.perf_counter() - started
+        mismatched = sorted({record.collection for record in records if record.collection != collection}, key=lambda item: str(item))
+        if mismatched:
+            return self._envelope("search_sky", "DISCOVERY_COLLECTION_MISMATCH", warnings=[],
+                                  errors=[f"Requested {collection}, but the archive response contained: {', '.join(map(str, mismatched))}."],
+                                  timings={"discovery_seconds": discovery_seconds})
         grouping_started = time.perf_counter()
         self.register_records(records)
         group = group_observations(records, area_key=label or f"CIRCLE_{ra_deg}_{dec_deg}_{radius_deg}")

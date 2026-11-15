@@ -40,6 +40,25 @@ The project has two deliberately distinct experiences.
 The static site is a demonstration surface, not a browser version of the full
 scientific application.
 
+### Experimental DR1 cube reader
+
+An isolated research reader is available in
+[`research/dr1_cube_reader/`](research/dr1_cube_reader/). It can inspect a
+small, explicitly bounded region of a verified 102-channel SPHEREx DR1 All-Sky
+Cube by using HTTP byte ranges and a durable request/byte ledger. It keeps
+IMAGE, NHITS, and FLAGS aligned; rejects intentionally blank channels 51 and
+52 unless explicitly acknowledged; limits regions to 32×32; and fails closed
+on unsupported structure, data types, or product identity.
+
+This is **not** a production viewer feature or a general archive browser. No
+cube route or UI control has been added. The code does not download a complete
+cube, does not turn NHITS into uncertainty, does not decode FLAGS semantics,
+and does not claim that cube pixels are source photometry, spectra, epochs,
+variability, motion, or detections. See the
+[reader contract](research/dr1_cube_reader/API_DESIGN.md),
+[scientific limitations](research/dr1_cube_reader/SCIENTIFIC_LIMITATIONS.md),
+and [DR1 compatibility note](DR1_COMPATIBILITY_NOTE.md).
+
 ## Scientific foundations
 
 **SPHEREx** is NASA's Spectro-Photometer for the History of the Universe, Epoch
@@ -145,6 +164,11 @@ project subpath such as `/cronoscope/`; relative asset paths are supported.
 .venv/bin/python -m pytest -q
 ```
 
+The experimental reader's deterministic tests require the normal web/test
+dependencies. Genuine response bodies, FITS products, SQLite ledgers,
+checkpoints, and machine-local validation reports are deliberately excluded
+from the public repository.
+
 ## Scientific integrity and limitations
 
 - **Real versus illustrative imagery:** Static SPHEREx previews are labelled
@@ -221,6 +245,11 @@ claim of NASA endorsement, sponsorship, award, or competition result.
   not include the local FITS products required by the full Python application.
 - **Research features:** moving-object exploration and image-comparison results
   remain evidence-led research, not production detection claims.
+- **DR1 Wide/Deep:** supported in the full local application with explicit
+  release boundaries; QR2 and QR3 remain separately labelled and guarded.
+- **DR1 All-Sky Cube:** a bounded experimental reader is published for research
+  and reproducibility, but it is not integrated into the application or static
+  demonstration.
 - **Publication blocker:** required rights/redistribution review for packaged
   scientific, gallery, and branding assets remains unresolved; see the
   [publication asset manifest](PUBLICATION_ASSET_MANIFEST.md).

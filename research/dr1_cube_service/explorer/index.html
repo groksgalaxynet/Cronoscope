@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Experimental Cronoscope SPHEREx DR1 cube wavelength explorer">
+  <title>CRONOSCOPE · Experimental DR1 Wavelength Explorer</title>
+  <link rel="stylesheet" href="/experimental/dr1-cube/explorer.css">
+</head>
+<body>
+  <header>
+    <div>
+      <span class="eyebrow">CRONOSCOPE · SPHEREx DR1</span>
+      <h1>Experimental Wavelength Explorer</h1>
+      <p>Verified 4×4 samples from one allowlisted all-sky coadded spectral cube.</p>
+    </div>
+    <span class="mode">LOCAL EVIDENCE</span>
+  </header>
+  <main>
+    <section class="panel controls" aria-labelledby="controls-title">
+      <span class="eyebrow">Bounded selection</span>
+      <h2 id="controls-title">Choose a verified sample</h2>
+      <label>Wavelength channel
+        <select id="channel">
+          <option value="0">Channel 0 · D1 / subchannel 1</option>
+          <option value="20" selected>Channel 20 · D2 / subchannel 4</option>
+          <option value="100">Channel 100 · D6 / subchannel 16</option>
+        </select>
+      </label>
+      <label>Validated 4×4 region
+        <select id="region">
+          <option value="90,107" selected>Region 1 · x 90, y 107</option>
+          <option value="94,107">Region 2 · x 94, y 107</option>
+        </select>
+      </label>
+      <button id="load-sample" type="button">Load genuine sample</button>
+      <p id="status" class="status" role="status" aria-live="polite">Choose a channel and region, then load the preserved sample.</p>
+      <div class="science-boundary">
+        <strong>Scientific boundary</strong>
+        <p>Cube IMAGE is coadded surface brightness, not source photometry or an observation epoch. NHITS is contribution count. FLAGS remain raw and uninterpreted. No uncertainty is invented.</p>
+      </div>
+    </section>
+
+    <section class="panel viewer" aria-labelledby="viewer-title">
+      <div class="viewer-head">
+        <div>
+          <span class="eyebrow">Actual sampled values</span>
+          <h2 id="viewer-title">4×4 intensity grid</h2>
+        </div>
+        <output id="unit" class="unit">—</output>
+      </div>
+      <div class="tabs" role="group" aria-label="Array selection">
+        <button type="button" data-array="IMAGE" class="active" aria-pressed="true">IMAGE</button>
+        <button type="button" data-array="NHITS" aria-pressed="false">NHITS</button>
+        <button type="button" data-array="FLAGS" aria-pressed="false">RAW FLAGS</button>
+      </div>
+      <div id="grid" class="pixel-grid empty" aria-label="Selected 4 by 4 scientific array">
+        <p>Load a sample to display genuine values.</p>
+      </div>
+      <div id="array-note" class="array-note">No array loaded.</div>
+    </section>
+
+    <aside class="panel metadata" aria-labelledby="metadata-title">
+      <span class="eyebrow">Metadata & provenance</span>
+      <h2 id="metadata-title">Sample context</h2>
+      <dl id="wavelength"><dt>Wavelength</dt><dd>Not loaded</dd></dl>
+      <dl id="provenance"><dt>Product</dt><dd>Not loaded</dd></dl>
+      <p id="validation" class="validation">Validation pending.</p>
+    </aside>
+  </main>
+  <footer>Experimental local research capability · no archive request is made in preserved-evidence mode.</footer>
+  <script src="/experimental/dr1-cube/explorer.js"></script>
+</body>
+</html>

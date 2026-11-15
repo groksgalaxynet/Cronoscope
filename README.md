@@ -64,14 +64,31 @@ IMAGE, NHITS, and FLAGS aligned; rejects intentionally blank channels 51 and
 52 unless explicitly acknowledged; limits regions to 32×32; and fails closed
 on unsupported structure, data types, or product identity.
 
-This is **not** a production viewer feature or a general archive browser. No
-cube route or UI control has been added. The code does not download a complete
-cube, does not turn NHITS into uncertainty, does not decode FLAGS semantics,
-and does not claim that cube pixels are source photometry, spectra, epochs,
-variability, motion, or detections. See the
+This is **not** a production viewer feature or a general archive browser. The
+code does not download a complete cube, turn NHITS into uncertainty, decode
+FLAGS semantics, or claim that cube pixels are source photometry, spectra,
+epochs, variability, motion, or detections. See the
 [reader contract](research/dr1_cube_reader/API_DESIGN.md),
 [scientific limitations](research/dr1_cube_reader/SCIENTIFIC_LIMITATIONS.md),
 and [DR1 compatibility note](DR1_COMPATIBILITY_NOTE.md).
+
+### Experimental DR1 cube service and wavelength explorer
+
+The isolated localhost package in
+[`research/dr1_cube_service/`](research/dr1_cube_service/) adds a fixed
+server-side product allowlist, persistent request/transfer budgets, a bounded
+SHA-256-verified range cache, structured errors, and a minimal same-origin
+wavelength explorer. In preserved-evidence mode the explorer supports channels
+0, 20, and 100 and the two verified 4×4 regions without making an archive
+request.
+
+Start the service as documented in its
+[README](research/dr1_cube_service/README.md), then open
+`http://127.0.0.1:8766/experimental/dr1-cube`. This localhost research page is
+separate from the production viewer and GitHub Pages. It displays genuine
+IMAGE, NHITS, and raw FLAGS values with wavelength metadata and provenance;
+it makes no source-photometry, source-spectrum, uncertainty, motion,
+variability, or independent-calibration claim.
 
 ## Scientific foundations
 

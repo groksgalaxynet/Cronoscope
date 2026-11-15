@@ -40,6 +40,20 @@ The project has two deliberately distinct experiences.
 The static site is a demonstration surface, not a browser version of the full
 scientific application.
 
+### DR1 progress — November 15, 2026
+
+- **Production / verified application:** QR2 and QR3 scientific-image support,
+  DR1 Wide (D1–D6) and DR1 Deep D1 spectral-image support, bounded DR1 cutout
+  retrieval, visible collection provenance, and fail-closed cross-collection
+  comparison guards.
+- **Experimental research:** bounded HTTP Range access to a DR1 All-Sky Cube,
+  persistent request/byte accounting, validated sampling of three genuine
+  channels, and aligned IMAGE/NHITS/FLAGS extraction.
+- **Not yet supported:** complete validation of all 102 cube channels,
+  cube-based motion detection or temporal variability, uncertainty-aware cube
+  photometry, source-spectrum claims from cube pixels, or unverified
+  cross-product scientific comparisons.
+
 ### Experimental DR1 cube reader
 
 An isolated research reader is available in

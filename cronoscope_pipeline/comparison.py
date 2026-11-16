@@ -25,6 +25,8 @@ class ComparisonStatus(str, Enum):
     INCOMPATIBLE_WCS = "INCOMPATIBLE_WCS"
     REGISTRATION_ERROR = "REGISTRATION_ERROR"
     NO_OVERLAP = "NO_OVERLAP"
+    INSUFFICIENT_IMAGE_GEOMETRY = "INSUFFICIENT_IMAGE_GEOMETRY"
+    INSUFFICIENT_OVERLAP = "INSUFFICIENT_OVERLAP"
     INVALID_DIFFERENCE = "INVALID_DIFFERENCE"
 
 
@@ -240,6 +242,21 @@ def register_observations(product_a: NormalizedFitsProduct, product_b: Normalize
     if product_a.wcs is None or product_b.wcs is None or product_a.wcs_status.value != "VALID" or product_b.wcs_status.value != "VALID":
         return _empty(ComparisonStatus.INCOMPATIBLE_WCS, product_a, product_b, warning="Both products require VALID celestial WCS", spatial="INCOMPATIBLE")
     image_a, image_b = np.asarray(product_a.image, dtype=float), np.asarray(product_b.image, dtype=float)
+    if image_a.ndim != 2 or image_b.ndim != 2:
+        return _empty(ComparisonStatus.INVALID_PRODUCT, product_a, product_b,
+                      warning="Both selected science arrays must be two-dimensional")
+    # A one-sample axis is topologically one-dimensional even when FITS stores
+    # it as a 2-D array.  IRSA can legitimately return this geometry when a
+    # target-centred cutout clips a detector boundary; it must not be presented
+    # as a usable sky image or stretched into one.
+    if min(image_a.shape) < 2 or min(image_b.shape) < 2:
+        return _empty(
+            ComparisonStatus.INSUFFICIENT_IMAGE_GEOMETRY, product_a, product_b,
+            warning=("A selected archive cutout has fewer than two samples on one spatial axis "
+                     f"(A {image_a.shape[1]}x{image_a.shape[0]}, B {image_b.shape[1]}x{image_b.shape[0]} pixels); "
+                     "choose another observation with genuine two-dimensional coverage."),
+            spatial="INSUFFICIENT_GEOMETRY",
+        )
     try:
         registered_b, footprint = reproject_interp((image_b, product_b.wcs), product_a.wcs, shape_out=image_a.shape)
     except Exception as exc:
@@ -248,6 +265,17 @@ def register_observations(product_a: NormalizedFitsProduct, product_b: Normalize
     valid_count = int(np.count_nonzero(valid))
     if valid_count == 0:
         return _empty(ComparisonStatus.NO_OVERLAP, product_a, product_b, warning="No finite registered overlap", spatial="NO_OVERLAP")
+    valid_y, valid_x = np.nonzero(valid)
+    overlap_height = int(valid_y.max() - valid_y.min() + 1)
+    overlap_width = int(valid_x.max() - valid_x.min() + 1)
+    if valid_count < 4 or overlap_height < 2 or overlap_width < 2:
+        return _empty(
+            ComparisonStatus.INSUFFICIENT_OVERLAP, product_a, product_b,
+            warning=("Registered finite overlap is not genuinely two-dimensional "
+                     f"({overlap_width}x{overlap_height} pixel bounds, {valid_count} valid pixels); "
+                     "choose observations with broader shared sky coverage."),
+            spatial="INSUFFICIENT_OVERLAP",
+        )
     difference = registered_b - image_a  # Frozen Test-5/Test-7 direction.
     difference[~valid] = np.nan
     values = difference[np.isfinite(difference)]

@@ -17,7 +17,7 @@ from astropy.io import fits
 from PIL import Image, ImageDraw
 
 from cronoscope_pipeline.comparison import FROZEN_TEST5_TEST7_V1
-from cronoscope_pipeline.discovery import DEFAULT_COLLECTION, SUPPORTED_COLLECTIONS
+from cronoscope_pipeline.discovery import DEFAULT_COLLECTION, SUPPORTED_COLLECTIONS, supported_collections_text
 from cronoscope_pipeline.fits_normalization import normalize_fits_product
 from cronoscope_pipeline.models import FitsValidation, ObservationRecord, RetrievalResult, RetrievalStatus
 from cronoscope_pipeline.orchestrator import ORCHESTRATOR_VERSION, CronoscopeOrchestrator
@@ -107,6 +107,12 @@ def _local_replay_orchestrator() -> CronoscopeOrchestrator:
 
     def retrieve(record: ObservationRecord, _cache_dir: str) -> RetrievalResult:
         path = paths[record.observation_id]
+        if not path.is_file():
+            return RetrievalResult(
+                RetrievalStatus.INVALID_CONTENT, str(record.observation_id), None,
+                record.access_url, None, record.observation_id, None,
+                "Preserved local replay FITS evidence is unavailable; no value was fabricated.",
+            )
         return RetrievalResult(RetrievalStatus.CACHE_HIT, str(record.observation_id), str(path), record.access_url,
                                path.stat().st_size, record.observation_id, FitsValidation(True, 7))
 
@@ -383,9 +389,9 @@ class CronoscopeWebApplication:
                              warnings=["No search was run; narrow the requested sky area."])
         requested_collection = payload.get("collection", DEFAULT_COLLECTION)
         if mode != "LIVE":
-            requested_collection = DEFAULT_COLLECTION
+            requested_collection = "spherex_qr2"
         if not isinstance(requested_collection, str) or requested_collection not in SUPPORTED_COLLECTIONS:
-            return _envelope("search_sky", "INVALID_COLLECTION", errors=["collection must be one of: spherex_qr2, spherex_qr3"])
+            return _envelope("search_sky", "INVALID_COLLECTION", errors=[f"collection must be one of: {supported_collections_text()}"])
         result = orchestrator.search_sky(ra, dec, radius, label="LOCAL_REPLAY" if mode == "LOCAL_REPLAY" else None,
                                          collection=requested_collection)
         if result["status"] != "SUCCESS":
@@ -416,7 +422,7 @@ class CronoscopeWebApplication:
         orchestrator = _local_real_target_orchestrator(target_id)
         if orchestrator is None:
             return _envelope("local_real_target_search", "LOCAL_PRODUCT_UNAVAILABLE", errors=["The retained local FITS product is unavailable."])
-        result = orchestrator.search_sky(0.0, 0.0, 0.0001, label=f"LOCAL_REAL_{target_id}")
+        result = orchestrator.search_sky(0.0, 0.0, 0.0001, label=f"LOCAL_REAL_{target_id}", collection="spherex_qr2")
         ids = [product["product_id"] for product in result.get("data", {}).get("products", [])]
         self._owners.update({product_id: orchestrator for product_id in ids})
         result["operation"] = "local_real_target_search"
@@ -680,7 +686,7 @@ class CronoscopeWebApplication:
             return self._json(start_response, _envelope("spectral_probe", "UNKNOWN_COMPARISON_ID", errors=["Unknown comparison ID."]), "404 Not Found")
         if method == "GET" and path == "/api/health":
             return self._json(start_response, _envelope("health", "SUCCESS", data={"application": "CRONOSCOPE", "backend_version": ORCHESTRATOR_VERSION,
-                              "detector_version": FROZEN_TEST5_TEST7_V1.identity, "capabilities": {"live_search": True, "local_replay": True},
+                              "detector_version": FROZEN_TEST5_TEST7_V1.identity, "capabilities": {"live_search": True, "local_replay": all((ROOT / "fits_files" / name).is_file() for name in ("test7_case1_a.fits", "test7_case1_b.fits"))},
                               "limits": {"max_radius_deg": self.limits.max_radius_deg, "max_products_per_search": self.limits.max_products_per_search,
                                          "max_option_page_size": self.limits.max_option_page_size, "max_concurrent_comparisons": self.limits.max_concurrent_comparisons,
                                          "comparison_timeout_note_seconds": self.limits.comparison_timeout_note_seconds},

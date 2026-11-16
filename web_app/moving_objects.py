@@ -6,7 +6,6 @@ stationary targets can supply fixed sky positions through the same contract.
 """
 from __future__ import annotations
 
-import csv
 import json
 from dataclasses import dataclass
 from pathlib import Path
@@ -15,9 +14,7 @@ from typing import Any
 from cronoscope_pipeline.models import ObservationRecord
 
 ROOT = Path(__file__).resolve().parents[1]
-FROZEN_EVIDENCE = ROOT / "tests/test40d_frozen_population_detector_evaluation" / "frozen_population_detector_evidence.json"
-FROZEN_POPULATION = ROOT / "tests/test40b_balanced_multipair_population" / "balanced_multipair_population.json"
-INVENTORY = ROOT / "csv" / "test9_stage1b_observations.csv"
+FROZEN_EVIDENCE = ROOT / "web_app" / "data" / "moving_object_runtime_catalog.json"
 
 
 def _observation(row: dict[str, str]) -> ObservationRecord:
@@ -35,15 +32,12 @@ class MovingObjectCatalog:
     archive_rows: dict[str, ObservationRecord]
 
     @classmethod
-    def from_frozen_artifacts(cls, evidence_path: Path = FROZEN_EVIDENCE, inventory_path: Path = INVENTORY,
-                              population_path: Path = FROZEN_POPULATION) -> "MovingObjectCatalog":
+    def from_frozen_artifacts(cls, evidence_path: Path = FROZEN_EVIDENCE) -> "MovingObjectCatalog":
         evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
-        positions = {str(item["asteroid_number"]): item for item in json.loads(population_path.read_text(encoding="utf-8"))["accepted_tracks"]}
-        tracks = {str(item["asteroid_number"]): {**positions[str(item["asteroid_number"])], **item} for item in evidence["results"]}
-        with inventory_path.open(newline="", encoding="utf-8") as handle:
-            archive_rows = {row["obs_id"]: _observation(row) for row in csv.DictReader(handle)
-                            if row["dataproduct_type"] == "image" and row["calib_level"] == "2"
-                            and row["energy_bandpassname"] == "SPHEREx-D3"}
+        if evidence.get("classification") != "PUBLIC_RUNTIME_CATALOG_DERIVED_FROM_VERIFIED_PHASE40B_40D":
+            raise ValueError("moving-object runtime catalog provenance is invalid")
+        tracks = {str(item["asteroid_number"]): item for item in evidence["results"]}
+        archive_rows = {row["obs_id"]: _observation(row) for row in evidence["archive_rows"]}
         return cls(tracks, archive_rows)
 
     def target_summaries(self) -> list[dict[str, Any]]:

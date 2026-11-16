@@ -40,6 +40,56 @@ The project has two deliberately distinct experiences.
 The static site is a demonstration surface, not a browser version of the full
 scientific application.
 
+### DR1 progress — November 15, 2026
+
+- **Production / verified application:** QR2 and QR3 scientific-image support,
+  DR1 Wide (D1–D6) and DR1 Deep D1 spectral-image support, bounded DR1 cutout
+  retrieval, visible collection provenance, and fail-closed cross-collection
+  comparison guards.
+- **Experimental research:** bounded HTTP Range access to a DR1 All-Sky Cube,
+  persistent request/byte accounting, validated sampling of three genuine
+  channels, and aligned IMAGE/NHITS/FLAGS extraction.
+- **Not yet supported:** complete validation of all 102 cube channels,
+  cube-based motion detection or temporal variability, uncertainty-aware cube
+  photometry, source-spectrum claims from cube pixels, or unverified
+  cross-product scientific comparisons.
+
+### Experimental DR1 cube reader
+
+An isolated research reader is available in
+[`research/dr1_cube_reader/`](research/dr1_cube_reader/). It can inspect a
+small, explicitly bounded region of a verified 102-channel SPHEREx DR1 All-Sky
+Cube by using HTTP byte ranges and a durable request/byte ledger. It keeps
+IMAGE, NHITS, and FLAGS aligned; rejects intentionally blank channels 51 and
+52 unless explicitly acknowledged; limits regions to 32×32; and fails closed
+on unsupported structure, data types, or product identity.
+
+This is **not** a production viewer feature or a general archive browser. The
+code does not download a complete cube, turn NHITS into uncertainty, decode
+FLAGS semantics, or claim that cube pixels are source photometry, spectra,
+epochs, variability, motion, or detections. See the
+[reader contract](research/dr1_cube_reader/API_DESIGN.md),
+[scientific limitations](research/dr1_cube_reader/SCIENTIFIC_LIMITATIONS.md),
+and [DR1 compatibility note](DR1_COMPATIBILITY_NOTE.md).
+
+### Experimental DR1 cube service and wavelength explorer
+
+The isolated localhost package in
+[`research/dr1_cube_service/`](research/dr1_cube_service/) adds a fixed
+server-side product allowlist, persistent request/transfer budgets, a bounded
+SHA-256-verified range cache, structured errors, and a minimal same-origin
+wavelength explorer. In preserved-evidence mode the explorer supports channels
+0, 20, and 100 and the two verified 4×4 regions without making an archive
+request.
+
+Start the service as documented in its
+[README](research/dr1_cube_service/README.md), then open
+`http://127.0.0.1:8766/experimental/dr1-cube`. This localhost research page is
+separate from the production viewer and GitHub Pages. It displays genuine
+IMAGE, NHITS, and raw FLAGS values with wavelength metadata and provenance;
+it makes no source-photometry, source-spectrum, uncertainty, motion,
+variability, or independent-calibration claim.
+
 ## Scientific foundations
 
 **SPHEREx** is NASA's Spectro-Photometer for the History of the Universe, Epoch
@@ -145,6 +195,11 @@ project subpath such as `/cronoscope/`; relative asset paths are supported.
 .venv/bin/python -m pytest -q
 ```
 
+The experimental reader's deterministic tests require the normal web/test
+dependencies. Genuine response bodies, FITS products, SQLite ledgers,
+checkpoints, and machine-local validation reports are deliberately excluded
+from the public repository.
+
 ## Scientific integrity and limitations
 
 - **Real versus illustrative imagery:** Static SPHEREx previews are labelled
@@ -221,6 +276,11 @@ claim of NASA endorsement, sponsorship, award, or competition result.
   not include the local FITS products required by the full Python application.
 - **Research features:** moving-object exploration and image-comparison results
   remain evidence-led research, not production detection claims.
+- **DR1 Wide/Deep:** supported in the full local application with explicit
+  release boundaries; QR2 and QR3 remain separately labelled and guarded.
+- **DR1 All-Sky Cube:** a bounded experimental reader is published for research
+  and reproducibility, but it is not integrated into the application or static
+  demonstration.
 - **Publication blocker:** required rights/redistribution review for packaged
   scientific, gallery, and branding assets remains unresolved; see the
   [publication asset manifest](PUBLICATION_ASSET_MANIFEST.md).

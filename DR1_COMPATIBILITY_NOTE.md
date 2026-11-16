@@ -1,8 +1,8 @@
 # SPHEREx DR1 Compatibility Note
 
-**Prepared:** 2026-11-14  
-**Scope:** architecture review only. No DR1 file was downloaded and no QR2/QR3
-pipeline, release guard, scientific baseline, or cached product was changed.
+**Prepared:** 2026-11-15
+**Scope:** compatibility and application-integration review. Existing QR2/QR3
+release guards and the static demonstration remain unchanged.
 
 ## Findings
 
@@ -34,6 +34,27 @@ pipeline, release guard, scientific baseline, or cached product was changed.
    through the image-MEF path.
 4. Add current citations: Spectral Images DOI `10.26131/IRSA678`; All-Sky Cube
    DOI `10.26131/IRSA679`; required SPHEREx acknowledgement.
+
+## DR1.5 disposition
+
+DR1 Wide and Deep support now remains in the existing 2-D discovery,
+normalization, and application path with explicit release labels and
+cross-release guards. The All-Sky Cube remains separate.
+
+The repository publishes an experimental cube reader, persistent request/byte
+accounting, deterministic tests, a fixed multi-channel validation plan, and a
+future API contract. A controlled private validation read three genuine
+channels across two 4×4 regions and independently reproduced all IMAGE, NHITS,
+and FLAGS slices with Astropy. That result validates byte-range decoding and
+array alignment only; it is not external calibration or a scientific source
+measurement. Raw responses, FITS artifacts, ledgers, checkpoints, and private
+validation reports are intentionally excluded.
+
+No production route or browser UI was added. Safe integration still requires
+an allowlisted product resolver, server-owned ledger lifecycle, concurrency
+and storage policy, application-specific provenance/error design, and browser
+acceptance testing. Routing a user-supplied remote URL through the current app
+would create an unacceptable retrieval and resource-control boundary.
 
 ## Sources
 

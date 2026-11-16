@@ -14,7 +14,7 @@ class DiscoveryQuery:
     ra_deg: float
     dec_deg: float
     radius_deg: float
-    collection: str = "spherex_qr2"
+    collection: str = "spherex_dr1"
     calibration_level: int | None = 2
     label: str | None = None
 
@@ -42,6 +42,9 @@ class ObservationRecord:
     s_region: str | None
     source_query: str | None = None
     raw_identifiers: dict[str, str] = field(default_factory=dict)
+    query_ra_deg: float | None = None
+    query_dec_deg: float | None = None
+    query_radius_deg: float | None = None
 
     def to_jsonable(self) -> dict[str, Any]:
         """Return only standard JSON types for a later HTTP/UI boundary."""
@@ -55,6 +58,7 @@ class RetrievalStatus(str, Enum):
     HTTP_ERROR = "HTTP_ERROR"
     INVALID_CONTENT = "INVALID_CONTENT"
     INVALID_FITS = "INVALID_FITS"
+    SIZE_LIMIT_EXCEEDED = "SIZE_LIMIT_EXCEEDED"
     IO_ERROR = "IO_ERROR"
 
 
@@ -136,6 +140,11 @@ class NormalizedFitsProduct:
     selected_extname: str | None
     image_shape: tuple[int, ...] | None
     image: Any = field(repr=False, compare=False, default=None)
+    image_unit: str | None = None
+    finite_image_mask: Any = field(repr=False, compare=False, default=None)
+    quality_flags: Any = field(repr=False, compare=False, default=None)
+    variance: Any = field(repr=False, compare=False, default=None)
+    variance_unit: str | None = None
     wcs: Any = field(repr=False, compare=False, default=None)
     wcs_status: WcsStatus = WcsStatus.MISSING
     celestial_footprint_deg: tuple[tuple[float, float], ...] | None = None
@@ -148,6 +157,8 @@ class NormalizedFitsProduct:
     hdu_inventory: tuple[HduInventoryEntry, ...] = ()
     warnings: tuple[str, ...] = ()
     observation_id: str | None = None
+    collection: str | None = None
+    source_url: str | None = None
 
     def to_jsonable(self) -> dict[str, Any]:
         return {
@@ -158,6 +169,11 @@ class NormalizedFitsProduct:
             "selected_extname": self.selected_extname,
             "image_shape": None if self.image_shape is None else list(self.image_shape),
             "image_available": self.image is not None,
+            "image_unit": self.image_unit,
+            "finite_image_mask_available": self.finite_image_mask is not None,
+            "quality_flags_available": self.quality_flags is not None,
+            "variance_available": self.variance is not None,
+            "variance_unit": self.variance_unit,
             "wcs_status": self.wcs_status.value,
             "celestial_footprint_deg": self.celestial_footprint_deg,
             "archive_timing_mjd": self.archive_timing_mjd,
@@ -168,6 +184,8 @@ class NormalizedFitsProduct:
             "fits_spectral_metadata": self.fits_spectral_metadata,
             "hdu_inventory": [item.to_jsonable() for item in self.hdu_inventory],
             "warnings": list(self.warnings),
+            "collection": self.collection,
+            "source_url": self.source_url,
         }
 
 

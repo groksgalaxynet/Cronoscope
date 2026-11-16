@@ -14,8 +14,14 @@ from astropy.io.votable import parse
 from .models import DiscoveryQuery, ObservationRecord
 
 SIA2_URL = "https://irsa.ipac.caltech.edu/SIA"
-DEFAULT_COLLECTION = "spherex_qr2"
-SUPPORTED_COLLECTIONS = frozenset({"spherex_qr2", "spherex_qr3"})
+DEFAULT_COLLECTION = "spherex_dr1"
+SUPPORTED_COLLECTIONS = frozenset({"spherex_dr1", "spherex_dr1_deep", "spherex_qr2", "spherex_qr3"})
+MAX_QUERY_RADIUS_DEG = 0.25
+
+
+def supported_collections_text() -> str:
+    """Return a stable public description of explicit archive collection tokens."""
+    return ", ".join(sorted(SUPPORTED_COLLECTIONS))
 
 
 class DiscoveryError(RuntimeError):
@@ -25,7 +31,7 @@ class DiscoveryError(RuntimeError):
 def validate_collection(collection: object) -> str:
     """Return an explicit supported archive collection or reject it."""
     if not isinstance(collection, str) or collection not in SUPPORTED_COLLECTIONS:
-        raise ValueError("collection must be one of: spherex_qr2, spherex_qr3")
+        raise ValueError(f"collection must be one of: {supported_collections_text()}")
     return collection
 
 
@@ -34,8 +40,8 @@ def build_sia2_params(query: DiscoveryQuery) -> dict[str, str]:
         raise ValueError("ra_deg must be in [0, 360)")
     if not (-90.0 <= query.dec_deg <= 90.0):
         raise ValueError("dec_deg must be in [-90, 90]")
-    if query.radius_deg <= 0:
-        raise ValueError("radius_deg must be positive")
+    if query.radius_deg <= 0 or query.radius_deg > MAX_QUERY_RADIUS_DEG:
+        raise ValueError(f"radius_deg must be positive and no greater than {MAX_QUERY_RADIUS_DEG}")
     collection = validate_collection(query.collection)
 
     params = {
@@ -146,5 +152,8 @@ def parse_votable_bytes(content: bytes, query: DiscoveryQuery | None = None) -> 
             target_name=_clean(value(row, "target_name")), s_region=_clean(value(row, "s_region")),
             source_query=None if query is None else query.label,
             raw_identifiers=raw_identifiers,
+            query_ra_deg=None if query is None else query.ra_deg,
+            query_dec_deg=None if query is None else query.dec_deg,
+            query_radius_deg=None if query is None else query.radius_deg,
         ))
     return records

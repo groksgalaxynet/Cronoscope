@@ -107,6 +107,12 @@ def _local_replay_orchestrator() -> CronoscopeOrchestrator:
 
     def retrieve(record: ObservationRecord, _cache_dir: str) -> RetrievalResult:
         path = paths[record.observation_id]
+        if not path.is_file():
+            return RetrievalResult(
+                RetrievalStatus.INVALID_CONTENT, str(record.observation_id), None,
+                record.access_url, None, record.observation_id, None,
+                "Preserved local replay FITS evidence is unavailable; no value was fabricated.",
+            )
         return RetrievalResult(RetrievalStatus.CACHE_HIT, str(record.observation_id), str(path), record.access_url,
                                path.stat().st_size, record.observation_id, FitsValidation(True, 7))
 
@@ -680,7 +686,7 @@ class CronoscopeWebApplication:
             return self._json(start_response, _envelope("spectral_probe", "UNKNOWN_COMPARISON_ID", errors=["Unknown comparison ID."]), "404 Not Found")
         if method == "GET" and path == "/api/health":
             return self._json(start_response, _envelope("health", "SUCCESS", data={"application": "CRONOSCOPE", "backend_version": ORCHESTRATOR_VERSION,
-                              "detector_version": FROZEN_TEST5_TEST7_V1.identity, "capabilities": {"live_search": True, "local_replay": True},
+                              "detector_version": FROZEN_TEST5_TEST7_V1.identity, "capabilities": {"live_search": True, "local_replay": all((ROOT / "fits_files" / name).is_file() for name in ("test7_case1_a.fits", "test7_case1_b.fits"))},
                               "limits": {"max_radius_deg": self.limits.max_radius_deg, "max_products_per_search": self.limits.max_products_per_search,
                                          "max_option_page_size": self.limits.max_option_page_size, "max_concurrent_comparisons": self.limits.max_concurrent_comparisons,
                                          "comparison_timeout_note_seconds": self.limits.comparison_timeout_note_seconds},

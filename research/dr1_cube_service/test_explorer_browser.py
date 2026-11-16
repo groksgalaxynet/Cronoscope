@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import tempfile
 import threading
 from contextlib import contextmanager
@@ -26,7 +27,7 @@ EXPECTED_WAVELENGTHS = {
 @contextmanager
 def running_explorer():
     with tempfile.TemporaryDirectory() as temporary:
-        service = CubeSampleService(ServiceConfig(Path(temporary), EVIDENCE))
+        service = CubeSampleService(ServiceConfig(Path(temporary)))
         server = make_server("127.0.0.1", 0, create_app(service))
         thread = threading.Thread(target=server.serve_forever, daemon=True); thread.start()
         try:
@@ -56,11 +57,14 @@ def test_explorer_loads_all_verified_samples_and_switches_science_arrays() -> No
                 expect(page.locator("#wavelength")).to_contain_text(wavelength)
                 expect(page.locator("#provenance")).to_contain_text("Npix7945_cube.fits")
                 expect(page.locator("#provenance")).to_contain_text("SPHEREx DR1")
-                expect(page.locator("#validation")).to_contain_text("Genuine saved evidence matched exactly")
+                expect(page.locator("#validation")).to_contain_text("Verified result replay")
                 expect(page.locator("#array-note")).to_contain_text("missing values: 0")
 
+        reference_data = json.loads(
+            (ROOT / "research" / "dr1_cube_service" / "fixtures" / "Npix7945_verified_samples.json").read_text()
+        )
         reference = next(
-            sample for sample in service._source(service.resolver.resolve("Npix7945_cube")).reference["samples"]
+            sample for sample in reference_data["samples"]
             if sample["request"]["channel_zero_based"] == 100 and sample["request"]["x"] == 94
         )
         expect(page.locator("#unit")).to_have_text("MJy/sr")

@@ -136,14 +136,9 @@ def create_app(service: CubeSampleService) -> CubeServiceApplication:
 
 
 def main() -> int:
-    root = Path(__file__).resolve().parents[2]
-    default_evidence = (
-        root / "research" / "dr1_cube_reader" / "evidence" /
-        "CRONOSCOPE_DR1_5_NPIX7945_MULTI_2026_11_15"
-    )
     parser = argparse.ArgumentParser(description="Local experimental SPHEREx DR1 cube service")
     parser.add_argument("--state-dir", type=Path, required=True)
-    parser.add_argument("--evidence-root", type=Path, default=default_evidence)
+    parser.add_argument("--evidence-root", type=Path)
     parser.add_argument("--enable-live", action="store_true")
     parser.add_argument("--port", type=int, default=8766)
     args = parser.parse_args()

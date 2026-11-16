@@ -4,9 +4,10 @@ This localhost-only WSGI service exposes the verified bounded cube reader under
 `POST /api/experimental/dr1/cube/sample`. It is isolated from Cronoscope's
 production routes and browser viewer.
 
-By default it replays preserved genuine DR1.5 response ranges and makes zero
-archive requests. Start it from the repository root with a private state
-directory:
+By default it replays the packaged public subset of the verified DR1.5 result
+and makes zero archive requests. This preserves the six validated samples and
+their provenance without claiming a fresh raw-range decode. Start it from the
+repository root with a private state directory:
 
 ```bash
 .venv/bin/python -m research.dr1_cube_service.api --state-dir /tmp/cronoscope-dr16-state
@@ -30,7 +31,8 @@ experiment IDs, budgets, cache locations, or concurrency limits. Channels 51
 and 52 are unavailable, regions are limited to 32×32, request bodies are
 limited to 4096 bytes, and exactly one retrieval may execute at a time.
 
-Live archive mode exists only for separately authorized local research and is
+Private preserved range evidence can be selected explicitly with
+`--evidence-root`. Live archive mode exists only for separately authorized local research and is
 disabled by default. It uses the exact allowlisted HTTPS URL, forbids redirects,
 persists a fixed 40-attempt/16-MiB ledger, and never performs an unbounded GET.
 

@@ -20,7 +20,7 @@ EVIDENCE = (
 class ApiTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory()
-        service = CubeSampleService(ServiceConfig(Path(self.temporary.name), EVIDENCE))
+        service = CubeSampleService(ServiceConfig(Path(self.temporary.name)))
         self.app = create_app(service)
 
     def tearDown(self) -> None:
@@ -51,6 +51,8 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(captured["status"], "200 OK")
         self.assertEqual(response["classification"], "EXPERIMENTAL_DR1_CUBE_SAMPLE")
         self.assertTrue(response["validation"]["genuine_evidence_match"])
+        self.assertTrue(response["validation"]["public_result_replay"])
+        self.assertFalse(response["validation"]["current_raw_range_decode_performed"])
         self.assertEqual(response["resources"]["external_requests_this_call"], 0)
         self.assertNotIn("Access-Control-Allow-Origin", captured["headers"])
         self.assertEqual(captured["headers"]["Cache-Control"], "no-store")

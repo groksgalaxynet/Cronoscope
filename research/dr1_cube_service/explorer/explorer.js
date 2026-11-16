@@ -21,7 +21,7 @@
     const wavelength=sample.wavelength_metadata,product=sample.product,selection=sample.selection;
     $("wavelength").innerHTML=`<dt>Channel</dt><dd>${selection.channel_zero_based}</dd><dt>Detector</dt><dd>D${wavelength.DETECTOR} / subchannel ${wavelength.SUBCHAN}</dd><dt>Central λ</dt><dd>${Number(wavelength.WAVELENGTH).toFixed(9)} µm</dd><dt>Bounds</dt><dd>${Number(wavelength.WL_MIN).toFixed(9)}–${Number(wavelength.WL_MAX).toFixed(9)} µm</dd><dt>Bandwidth</dt><dd>${Number(wavelength.BANDWIDTH).toFixed(9)} µm</dd>`;
     $("provenance").innerHTML=`<dt>Product</dt><dd>${safe(product.filename)}</dd><dt>Collection</dt><dd>${safe(product.collection)}</dd><dt>Release</dt><dd>${safe(product.release)}</dd><dt>Region</dt><dd>x ${selection.pixel_origin_zero_based[0]}, y ${selection.pixel_origin_zero_based[1]} · ${selection.width}×${selection.height}</dd><dt>Size</dt><dd>${Number(product.content_length).toLocaleString()} bytes</dd><dt>Archive</dt><dd><a href="${safe(product.official_url)}" rel="noreferrer">Official allowlisted IRSA identity</a></dd>`;
-    const validation=sample.validation.genuine_evidence_match===true?"Genuine saved evidence matched exactly.":"Structural decoding only; genuine replay match unavailable.";
+    const validation=sample.validation.public_result_replay===true?"Verified result replay; raw FITS ranges are not packaged.":sample.validation.genuine_evidence_match===true?"Genuine saved evidence matched exactly.":"Structural decoding only; genuine replay match unavailable.";
     $("validation").textContent=`${validation} External requests this call: ${sample.resources.external_requests_this_call}. Independent photometric calibration: no.`;$("validation").className=`validation ${sample.validation.genuine_evidence_match===true?"success":""}`;
   }
   async function loadSample(){
@@ -29,7 +29,7 @@
     try{
       const response=await fetch("/api/experimental/dr1/cube/sample",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({product_id:"Npix7945_cube",channel,x,y,width:4,height:4})});
       const payload=await response.json();if(!response.ok||payload.status!=="SUCCESS")throw new Error(payload.error?.message||`Request failed with HTTP ${response.status}`);
-      sample=payload;renderGrid();renderMetadata();setStatus(`Loaded channel ${channel}, region x ${x}, y ${y}. Genuine values are displayed.`,"success");
+      sample=payload;renderGrid();renderMetadata();setStatus(`Loaded channel ${channel}, region x ${x}, y ${y}. Verified values are displayed.`,"success");
     }catch(error){setStatus(`Unable to load sample: ${error.message}`,"error")}
     finally{button.disabled=false}
   }

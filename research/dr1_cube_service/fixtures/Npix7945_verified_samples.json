@@ -1,0 +1,1274 @@
+{
+  "channels": [
+    0,
+    20,
+    100
+  ],
+  "classification": "PUBLIC_REPLAY_OF_VERIFIED_DR1_RESULT",
+  "derived_from": {
+    "artifact": "multi_channel_result.json",
+    "experiment_id": "CRONOSCOPE_DR1_5_NPIX7945_MULTI_2026_11_15",
+    "method": "exact field selection; no pixel or metadata values recalculated",
+    "raw_range_responses_included": false,
+    "sha256": "aa24f708a3d2d74443277769893230186fa8ba45a2943b3f4f3fecb4b26d57b1"
+  },
+  "limitations": [
+    "Independent decoding is not independent photometric calibration.",
+    "Cube pixels are coadded surface brightness, not observation epochs.",
+    "NHITS is not uncertainty and FLAGS remain raw integers.",
+    "This public artifact replays an already verified result; it does not independently decode the FITS product."
+  ],
+  "product_identity": {
+    "content_length": 320909760,
+    "etag": null,
+    "final_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix7945_cube.fits",
+    "last_modified": "Wed, 28 Oct 2026 12:03:07 GMT"
+  },
+  "regions": [
+    [
+      90,
+      107,
+      4,
+      4
+    ],
+    [
+      94,
+      107,
+      4,
+      4
+    ]
+  ],
+  "samples": [
+    {
+      "arrays": {
+        "FLAGS": {
+          "dtype": ">i4",
+          "finite_count": 16,
+          "values": [
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ]
+          ]
+        },
+        "IMAGE": {
+          "dtype": ">f4",
+          "finite_count": 16,
+          "values": [
+            [
+              0.2006598263978958,
+              0.17824144661426544,
+              0.21118561923503876,
+              0.2537994086742401
+            ],
+            [
+              0.15078583359718323,
+              0.1741301417350769,
+              0.1938948929309845,
+              0.23537379503250122
+            ],
+            [
+              0.14443068206310272,
+              0.16428251564502716,
+              0.21026666462421417,
+              0.18960413336753845
+            ],
+            [
+              0.18180832266807556,
+              0.19167178869247437,
+              0.17525789141654968,
+              0.2043609321117401
+            ]
+          ]
+        },
+        "NHITS": {
+          "dtype": ">i4",
+          "finite_count": 16,
+          "values": [
+            [
+              12,
+              15,
+              12,
+              14
+            ],
+            [
+              12,
+              13,
+              14,
+              12
+            ],
+            [
+              13,
+              14,
+              13,
+              13
+            ],
+            [
+              13,
+              13,
+              14,
+              13
+            ]
+          ]
+        }
+      },
+      "coordinates": {
+        "fits_axis_order": [
+          "x",
+          "y",
+          "spectral_channel"
+        ],
+        "numpy_axis_order": [
+          "spectral_channel",
+          "y",
+          "x"
+        ],
+        "pixel_extent_zero_based_inclusive": [
+          90,
+          107,
+          93,
+          110
+        ],
+        "pixel_origin_zero_based": [
+          90,
+          107
+        ],
+        "wcs_header": {
+          "CDELT1": 1.0,
+          "CDELT2": 1.0,
+          "CRPIX1": -17407.5,
+          "CRPIX2": -15359.5,
+          "CRVAL1": 0.0,
+          "CRVAL2": 0.0,
+          "CTYPE1": "RA---HPX",
+          "CTYPE2": "DEC--HPX",
+          "CUNIT1": "deg",
+          "CUNIT2": "deg",
+          "RADESYS": "ICRS"
+        }
+      },
+      "limitations": [
+        "Cube IMAGE is coadded surface brightness, not source photometry.",
+        "NHITS is coverage context and no uncertainty array is invented.",
+        "FLAGS are preserved without undocumented bit interpretation.",
+        "The cube is not a time series and supports no variability or motion claim."
+      ],
+      "provenance": {
+        "content_length": 320909760,
+        "etag": null,
+        "hdu_sequence": [
+          "PRIMARY",
+          "IMAGE",
+          "NHITS",
+          "FLAGS",
+          "SPECTRAL_CHANNELS",
+          "WCS-WAVE"
+        ],
+        "header_sha256": {
+          "FLAGS": "0614ad286867081b1da7499facb9f0f54bfdd66994a1bc0aeab313c38d2b2b1a",
+          "IMAGE": "4ff779629a67b8fc2a388047f79434db5595d656982c0f67460b01253a7b3008",
+          "NHITS": "8fd916a6d009a408da5cc7e827546eaee5b4bcc518a35b0d2c4744e8de4ba1bb",
+          "PRIMARY": "7cda78167e2e6b7ab7c6cae6c0faf415819e4ded7cfb4010ff8edf1d024b9d02",
+          "SPECTRAL_CHANNELS": "5346eb7f1fcae248170387bfd70db82f163da5f6b202656e9cd4568bf03685ff",
+          "WCS-WAVE": "19532061daf31f59e08c2dfd07aca8d3e6831933d6fde50422e3a06e81bfa1ad"
+        },
+        "last_modified": "Wed, 28 Oct 2026 12:03:07 GMT",
+        "product_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix7945_cube.fits"
+      },
+      "ranges": {
+        "FLAGS": {
+          "bytes": 6160,
+          "end": 214166455,
+          "sha256": "7c0094950d08b4f9c250f7491ce3ab21b78fc1b587c711c6a34ff3d4e1e6a1f5",
+          "start": 214160296
+        },
+        "IMAGE": {
+          "bytes": 6160,
+          "end": 234295,
+          "sha256": "25e19743b48dffb747de8fdb4394913d2ef6774cd0f820edeee737a867431f7c",
+          "start": 228136
+        },
+        "NHITS": {
+          "bytes": 6160,
+          "end": 107197495,
+          "sha256": "fdb39767025b6f8c06ea16b11708a9d2b885a948f04f34500c91ecf76ba74d61",
+          "start": 107191336
+        }
+      },
+      "request": {
+        "blank_channel": false,
+        "channel_zero_based": 0,
+        "height": 4,
+        "width": 4,
+        "x": 90,
+        "y": 107
+      },
+      "science": {
+        "channel": {
+          "BANDWIDTH": 0.017999999225139618,
+          "DETECTOR": 1,
+          "R": 42.0,
+          "R_STD": 1.100000023841858,
+          "SUBCHAN": 1,
+          "WAVELENGTH": 0.753000020980835,
+          "WL_MAX": 0.7620000243186951,
+          "WL_MIN": 0.7429999709129333
+        },
+        "flags_semantics": "raw uninterpreted integer bitmap",
+        "image_unit": "MJy/sr",
+        "uncertainty": null
+      },
+      "validation": {
+        "classification": "STRUCTURALLY_DECODED_SOFTWARE_EVIDENCE",
+        "independent_photometric_calibration": false,
+        "reference_match": false
+      }
+    },
+    {
+      "arrays": {
+        "FLAGS": {
+          "dtype": ">i4",
+          "finite_count": 16,
+          "values": [
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ]
+          ]
+        },
+        "IMAGE": {
+          "dtype": ">f4",
+          "finite_count": 16,
+          "values": [
+            [
+              0.3506627678871155,
+              0.48429110646247864,
+              0.49615296721458435,
+              0.5420337915420532
+            ],
+            [
+              0.30394282937049866,
+              0.2901139557361603,
+              0.3731071650981903,
+              0.3431059718132019
+            ],
+            [
+              0.32625293731689453,
+              0.33046823740005493,
+              0.26331809163093567,
+              0.2759506106376648
+            ],
+            [
+              0.21653535962104797,
+              0.1904527097940445,
+              0.1894627958536148,
+              0.19412600994110107
+            ]
+          ]
+        },
+        "NHITS": {
+          "dtype": ">i4",
+          "finite_count": 16,
+          "values": [
+            [
+              13,
+              13,
+              12,
+              13
+            ],
+            [
+              13,
+              12,
+              14,
+              13
+            ],
+            [
+              13,
+              13,
+              12,
+              15
+            ],
+            [
+              13,
+              13,
+              13,
+              12
+            ]
+          ]
+        }
+      },
+      "coordinates": {
+        "fits_axis_order": [
+          "x",
+          "y",
+          "spectral_channel"
+        ],
+        "numpy_axis_order": [
+          "spectral_channel",
+          "y",
+          "x"
+        ],
+        "pixel_extent_zero_based_inclusive": [
+          94,
+          107,
+          97,
+          110
+        ],
+        "pixel_origin_zero_based": [
+          94,
+          107
+        ],
+        "wcs_header": {
+          "CDELT1": 1.0,
+          "CDELT2": 1.0,
+          "CRPIX1": -17407.5,
+          "CRPIX2": -15359.5,
+          "CRVAL1": 0.0,
+          "CRVAL2": 0.0,
+          "CTYPE1": "RA---HPX",
+          "CTYPE2": "DEC--HPX",
+          "CUNIT1": "deg",
+          "CUNIT2": "deg",
+          "RADESYS": "ICRS"
+        }
+      },
+      "limitations": [
+        "Cube IMAGE is coadded surface brightness, not source photometry.",
+        "NHITS is coverage context and no uncertainty array is invented.",
+        "FLAGS are preserved without undocumented bit interpretation.",
+        "The cube is not a time series and supports no variability or motion claim."
+      ],
+      "provenance": {
+        "content_length": 320909760,
+        "etag": null,
+        "hdu_sequence": [
+          "PRIMARY",
+          "IMAGE",
+          "NHITS",
+          "FLAGS",
+          "SPECTRAL_CHANNELS",
+          "WCS-WAVE"
+        ],
+        "header_sha256": {
+          "FLAGS": "0614ad286867081b1da7499facb9f0f54bfdd66994a1bc0aeab313c38d2b2b1a",
+          "IMAGE": "4ff779629a67b8fc2a388047f79434db5595d656982c0f67460b01253a7b3008",
+          "NHITS": "8fd916a6d009a408da5cc7e827546eaee5b4bcc518a35b0d2c4744e8de4ba1bb",
+          "PRIMARY": "7cda78167e2e6b7ab7c6cae6c0faf415819e4ded7cfb4010ff8edf1d024b9d02",
+          "SPECTRAL_CHANNELS": "5346eb7f1fcae248170387bfd70db82f163da5f6b202656e9cd4568bf03685ff",
+          "WCS-WAVE": "19532061daf31f59e08c2dfd07aca8d3e6831933d6fde50422e3a06e81bfa1ad"
+        },
+        "last_modified": "Wed, 28 Oct 2026 12:03:07 GMT",
+        "product_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix7945_cube.fits"
+      },
+      "ranges": {
+        "FLAGS": {
+          "bytes": 6160,
+          "end": 214166471,
+          "sha256": "9359cbf8073abf466c3986463867979a1fb010793718665c4fc00f706177ac3b",
+          "start": 214160312
+        },
+        "IMAGE": {
+          "bytes": 6160,
+          "end": 234311,
+          "sha256": "813a6c20d5aac02fdc05e5ba5abb6a0314207122cdfcc0fe03095b73d045965a",
+          "start": 228152
+        },
+        "NHITS": {
+          "bytes": 6160,
+          "end": 107197511,
+          "sha256": "231a197a2a5b35e235070649748d3512dd73866e849fce04df8c86e3527bfea2",
+          "start": 107191352
+        }
+      },
+      "request": {
+        "blank_channel": false,
+        "channel_zero_based": 0,
+        "height": 4,
+        "width": 4,
+        "x": 94,
+        "y": 107
+      },
+      "science": {
+        "channel": {
+          "BANDWIDTH": 0.017999999225139618,
+          "DETECTOR": 1,
+          "R": 42.0,
+          "R_STD": 1.100000023841858,
+          "SUBCHAN": 1,
+          "WAVELENGTH": 0.753000020980835,
+          "WL_MAX": 0.7620000243186951,
+          "WL_MIN": 0.7429999709129333
+        },
+        "flags_semantics": "raw uninterpreted integer bitmap",
+        "image_unit": "MJy/sr",
+        "uncertainty": null
+      },
+      "validation": {
+        "classification": "STRUCTURALLY_DECODED_SOFTWARE_EVIDENCE",
+        "independent_photometric_calibration": false,
+        "reference_match": false
+      }
+    },
+    {
+      "arrays": {
+        "FLAGS": {
+          "dtype": ">i4",
+          "finite_count": 16,
+          "values": [
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ]
+          ]
+        },
+        "IMAGE": {
+          "dtype": ">f4",
+          "finite_count": 16,
+          "values": [
+            [
+              0.2700442373752594,
+              0.257484495639801,
+              0.2998376488685608,
+              0.41884154081344604
+            ],
+            [
+              0.2057161182165146,
+              0.2463042289018631,
+              0.2805576026439667,
+              0.37119370698928833
+            ],
+            [
+              0.18970364332199097,
+              0.23248529434204102,
+              0.25602978467941284,
+              0.2664087116718292
+            ],
+            [
+              0.2772982120513916,
+              0.23714901506900787,
+              0.23447076976299286,
+              0.29827219247817993
+            ]
+          ]
+        },
+        "NHITS": {
+          "dtype": ">i4",
+          "finite_count": 16,
+          "values": [
+            [
+              13,
+              14,
+              14,
+              13
+            ],
+            [
+              14,
+              12,
+              13,
+              11
+            ],
+            [
+              13,
+              10,
+              10,
+              12
+            ],
+            [
+              9,
+              11,
+              12,
+              11
+            ]
+          ]
+        }
+      },
+      "coordinates": {
+        "fits_axis_order": [
+          "x",
+          "y",
+          "spectral_channel"
+        ],
+        "numpy_axis_order": [
+          "spectral_channel",
+          "y",
+          "x"
+        ],
+        "pixel_extent_zero_based_inclusive": [
+          90,
+          107,
+          93,
+          110
+        ],
+        "pixel_origin_zero_based": [
+          90,
+          107
+        ],
+        "wcs_header": {
+          "CDELT1": 1.0,
+          "CDELT2": 1.0,
+          "CRPIX1": -17407.5,
+          "CRPIX2": -15359.5,
+          "CRVAL1": 0.0,
+          "CRVAL2": 0.0,
+          "CTYPE1": "RA---HPX",
+          "CTYPE2": "DEC--HPX",
+          "CUNIT1": "deg",
+          "CUNIT2": "deg",
+          "RADESYS": "ICRS"
+        }
+      },
+      "limitations": [
+        "Cube IMAGE is coadded surface brightness, not source photometry.",
+        "NHITS is coverage context and no uncertainty array is invented.",
+        "FLAGS are preserved without undocumented bit interpretation.",
+        "The cube is not a time series and supports no variability or motion claim."
+      ],
+      "provenance": {
+        "content_length": 320909760,
+        "etag": null,
+        "hdu_sequence": [
+          "PRIMARY",
+          "IMAGE",
+          "NHITS",
+          "FLAGS",
+          "SPECTRAL_CHANNELS",
+          "WCS-WAVE"
+        ],
+        "header_sha256": {
+          "FLAGS": "0614ad286867081b1da7499facb9f0f54bfdd66994a1bc0aeab313c38d2b2b1a",
+          "IMAGE": "4ff779629a67b8fc2a388047f79434db5595d656982c0f67460b01253a7b3008",
+          "NHITS": "8fd916a6d009a408da5cc7e827546eaee5b4bcc518a35b0d2c4744e8de4ba1bb",
+          "PRIMARY": "7cda78167e2e6b7ab7c6cae6c0faf415819e4ded7cfb4010ff8edf1d024b9d02",
+          "SPECTRAL_CHANNELS": "5346eb7f1fcae248170387bfd70db82f163da5f6b202656e9cd4568bf03685ff",
+          "WCS-WAVE": "19532061daf31f59e08c2dfd07aca8d3e6831933d6fde50422e3a06e81bfa1ad"
+        },
+        "last_modified": "Wed, 28 Oct 2026 12:03:07 GMT",
+        "product_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix7945_cube.fits"
+      },
+      "ranges": {
+        "FLAGS": {
+          "bytes": 6160,
+          "end": 235137975,
+          "sha256": "3c1880a5ab17d632a7616b41b7453c285be1599d2aea4bd682873d5423b57f9d",
+          "start": 235131816
+        },
+        "IMAGE": {
+          "bytes": 6160,
+          "end": 21205815,
+          "sha256": "914336796bdaf8e8da794f9e1f8dfd69f04989f09ad9b4805d2fad1211d48ee7",
+          "start": 21199656
+        },
+        "NHITS": {
+          "bytes": 6160,
+          "end": 128169015,
+          "sha256": "0f65fbe80752c58eff0f278af8f4de60ff84ecce99b55be1abcc0411b2e250b9",
+          "start": 128162856
+        }
+      },
+      "request": {
+        "blank_channel": false,
+        "channel_zero_based": 20,
+        "height": 4,
+        "width": 4,
+        "x": 90,
+        "y": 107
+      },
+      "science": {
+        "channel": {
+          "BANDWIDTH": 0.028999999165534973,
+          "DETECTOR": 2,
+          "R": 41.0,
+          "R_STD": 0.5,
+          "SUBCHAN": 4,
+          "WAVELENGTH": 1.1950000524520874,
+          "WL_MAX": 1.2100000381469727,
+          "WL_MIN": 1.1799999475479126
+        },
+        "flags_semantics": "raw uninterpreted integer bitmap",
+        "image_unit": "MJy/sr",
+        "uncertainty": null
+      },
+      "validation": {
+        "classification": "STRUCTURALLY_DECODED_SOFTWARE_EVIDENCE",
+        "independent_photometric_calibration": false,
+        "reference_match": false
+      }
+    },
+    {
+      "arrays": {
+        "FLAGS": {
+          "dtype": ">i4",
+          "finite_count": 16,
+          "values": [
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ]
+          ]
+        },
+        "IMAGE": {
+          "dtype": ">f4",
+          "finite_count": 16,
+          "values": [
+            [
+              0.5990667939186096,
+              0.6972582936286926,
+              0.6800560355186462,
+              0.6853429675102234
+            ],
+            [
+              0.46784162521362305,
+              0.44934555888175964,
+              0.5073332190513611,
+              0.4569988250732422
+            ],
+            [
+              0.3954867422580719,
+              0.4645496904850006,
+              0.40512773394584656,
+              0.39684173464775085
+            ],
+            [
+              0.33497363328933716,
+              0.2656462490558624,
+              0.2673235535621643,
+              0.2793971002101898
+            ]
+          ]
+        },
+        "NHITS": {
+          "dtype": ">i4",
+          "finite_count": 16,
+          "values": [
+            [
+              14,
+              14,
+              13,
+              14
+            ],
+            [
+              13,
+              13,
+              12,
+              13
+            ],
+            [
+              14,
+              13,
+              13,
+              14
+            ],
+            [
+              11,
+              14,
+              14,
+              12
+            ]
+          ]
+        }
+      },
+      "coordinates": {
+        "fits_axis_order": [
+          "x",
+          "y",
+          "spectral_channel"
+        ],
+        "numpy_axis_order": [
+          "spectral_channel",
+          "y",
+          "x"
+        ],
+        "pixel_extent_zero_based_inclusive": [
+          94,
+          107,
+          97,
+          110
+        ],
+        "pixel_origin_zero_based": [
+          94,
+          107
+        ],
+        "wcs_header": {
+          "CDELT1": 1.0,
+          "CDELT2": 1.0,
+          "CRPIX1": -17407.5,
+          "CRPIX2": -15359.5,
+          "CRVAL1": 0.0,
+          "CRVAL2": 0.0,
+          "CTYPE1": "RA---HPX",
+          "CTYPE2": "DEC--HPX",
+          "CUNIT1": "deg",
+          "CUNIT2": "deg",
+          "RADESYS": "ICRS"
+        }
+      },
+      "limitations": [
+        "Cube IMAGE is coadded surface brightness, not source photometry.",
+        "NHITS is coverage context and no uncertainty array is invented.",
+        "FLAGS are preserved without undocumented bit interpretation.",
+        "The cube is not a time series and supports no variability or motion claim."
+      ],
+      "provenance": {
+        "content_length": 320909760,
+        "etag": null,
+        "hdu_sequence": [
+          "PRIMARY",
+          "IMAGE",
+          "NHITS",
+          "FLAGS",
+          "SPECTRAL_CHANNELS",
+          "WCS-WAVE"
+        ],
+        "header_sha256": {
+          "FLAGS": "0614ad286867081b1da7499facb9f0f54bfdd66994a1bc0aeab313c38d2b2b1a",
+          "IMAGE": "4ff779629a67b8fc2a388047f79434db5595d656982c0f67460b01253a7b3008",
+          "NHITS": "8fd916a6d009a408da5cc7e827546eaee5b4bcc518a35b0d2c4744e8de4ba1bb",
+          "PRIMARY": "7cda78167e2e6b7ab7c6cae6c0faf415819e4ded7cfb4010ff8edf1d024b9d02",
+          "SPECTRAL_CHANNELS": "5346eb7f1fcae248170387bfd70db82f163da5f6b202656e9cd4568bf03685ff",
+          "WCS-WAVE": "19532061daf31f59e08c2dfd07aca8d3e6831933d6fde50422e3a06e81bfa1ad"
+        },
+        "last_modified": "Wed, 28 Oct 2026 12:03:07 GMT",
+        "product_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix7945_cube.fits"
+      },
+      "ranges": {
+        "FLAGS": {
+          "bytes": 6160,
+          "end": 235137991,
+          "sha256": "cdf5032d5cdde199fb472665e0057b9532aa6f3d845d46edbfe8707f7c22a50f",
+          "start": 235131832
+        },
+        "IMAGE": {
+          "bytes": 6160,
+          "end": 21205831,
+          "sha256": "ac757a9118429d2f2b47a6e986613807ee2cc2f5b21266b1e4bdf053fb97c371",
+          "start": 21199672
+        },
+        "NHITS": {
+          "bytes": 6160,
+          "end": 128169031,
+          "sha256": "6f309876a53ec6b6ad3843cbd9ea16a87e401560e3d1af436a1133e38be14064",
+          "start": 128162872
+        }
+      },
+      "request": {
+        "blank_channel": false,
+        "channel_zero_based": 20,
+        "height": 4,
+        "width": 4,
+        "x": 94,
+        "y": 107
+      },
+      "science": {
+        "channel": {
+          "BANDWIDTH": 0.028999999165534973,
+          "DETECTOR": 2,
+          "R": 41.0,
+          "R_STD": 0.5,
+          "SUBCHAN": 4,
+          "WAVELENGTH": 1.1950000524520874,
+          "WL_MAX": 1.2100000381469727,
+          "WL_MIN": 1.1799999475479126
+        },
+        "flags_semantics": "raw uninterpreted integer bitmap",
+        "image_unit": "MJy/sr",
+        "uncertainty": null
+      },
+      "validation": {
+        "classification": "STRUCTURALLY_DECODED_SOFTWARE_EVIDENCE",
+        "independent_photometric_calibration": false,
+        "reference_match": false
+      }
+    },
+    {
+      "arrays": {
+        "FLAGS": {
+          "dtype": ">i4",
+          "finite_count": 16,
+          "values": [
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ]
+          ]
+        },
+        "IMAGE": {
+          "dtype": ">f4",
+          "finite_count": 16,
+          "values": [
+            [
+              0.05626152455806732,
+              0.09033147990703583,
+              0.09756933152675629,
+              0.1594519019126892
+            ],
+            [
+              0.0755029246211052,
+              0.07126922905445099,
+              0.08854411542415619,
+              0.1128583699464798
+            ],
+            [
+              0.09119300544261932,
+              0.055158089846372604,
+              0.08406192064285278,
+              0.09523922950029373
+            ],
+            [
+              0.07948603481054306,
+              0.0758245587348938,
+              0.08661682903766632,
+              0.12651866674423218
+            ]
+          ]
+        },
+        "NHITS": {
+          "dtype": ">i4",
+          "finite_count": 16,
+          "values": [
+            [
+              9,
+              8,
+              13,
+              9
+            ],
+            [
+              7,
+              10,
+              8,
+              13
+            ],
+            [
+              8,
+              8,
+              10,
+              11
+            ],
+            [
+              7,
+              9,
+              9,
+              8
+            ]
+          ]
+        }
+      },
+      "coordinates": {
+        "fits_axis_order": [
+          "x",
+          "y",
+          "spectral_channel"
+        ],
+        "numpy_axis_order": [
+          "spectral_channel",
+          "y",
+          "x"
+        ],
+        "pixel_extent_zero_based_inclusive": [
+          90,
+          107,
+          93,
+          110
+        ],
+        "pixel_origin_zero_based": [
+          90,
+          107
+        ],
+        "wcs_header": {
+          "CDELT1": 1.0,
+          "CDELT2": 1.0,
+          "CRPIX1": -17407.5,
+          "CRPIX2": -15359.5,
+          "CRVAL1": 0.0,
+          "CRVAL2": 0.0,
+          "CTYPE1": "RA---HPX",
+          "CTYPE2": "DEC--HPX",
+          "CUNIT1": "deg",
+          "CUNIT2": "deg",
+          "RADESYS": "ICRS"
+        }
+      },
+      "limitations": [
+        "Cube IMAGE is coadded surface brightness, not source photometry.",
+        "NHITS is coverage context and no uncertainty array is invented.",
+        "FLAGS are preserved without undocumented bit interpretation.",
+        "The cube is not a time series and supports no variability or motion claim."
+      ],
+      "provenance": {
+        "content_length": 320909760,
+        "etag": null,
+        "hdu_sequence": [
+          "PRIMARY",
+          "IMAGE",
+          "NHITS",
+          "FLAGS",
+          "SPECTRAL_CHANNELS",
+          "WCS-WAVE"
+        ],
+        "header_sha256": {
+          "FLAGS": "0614ad286867081b1da7499facb9f0f54bfdd66994a1bc0aeab313c38d2b2b1a",
+          "IMAGE": "4ff779629a67b8fc2a388047f79434db5595d656982c0f67460b01253a7b3008",
+          "NHITS": "8fd916a6d009a408da5cc7e827546eaee5b4bcc518a35b0d2c4744e8de4ba1bb",
+          "PRIMARY": "7cda78167e2e6b7ab7c6cae6c0faf415819e4ded7cfb4010ff8edf1d024b9d02",
+          "SPECTRAL_CHANNELS": "5346eb7f1fcae248170387bfd70db82f163da5f6b202656e9cd4568bf03685ff",
+          "WCS-WAVE": "19532061daf31f59e08c2dfd07aca8d3e6831933d6fde50422e3a06e81bfa1ad"
+        },
+        "last_modified": "Wed, 28 Oct 2026 12:03:07 GMT",
+        "product_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix7945_cube.fits"
+      },
+      "ranges": {
+        "FLAGS": {
+          "bytes": 6160,
+          "end": 319024055,
+          "sha256": "f26c8fd0fbd94cc747460d55f23f462caac753a5eb693a6fbe392b2b9e8aa970",
+          "start": 319017896
+        },
+        "IMAGE": {
+          "bytes": 6160,
+          "end": 105091895,
+          "sha256": "b25dc9f70334de74784947b3611aec6984bfedbba8da4191efce60ec07b41387",
+          "start": 105085736
+        },
+        "NHITS": {
+          "bytes": 6160,
+          "end": 212055095,
+          "sha256": "69d78366d6bc2bdaa5d57fbeafb4019d32f10447ee7b38230e8906bedc586da1",
+          "start": 212048936
+        }
+      },
+      "request": {
+        "blank_channel": false,
+        "channel_zero_based": 100,
+        "height": 4,
+        "width": 4,
+        "x": 90,
+        "y": 107
+      },
+      "science": {
+        "channel": {
+          "BANDWIDTH": 0.03700000047683716,
+          "DETECTOR": 6,
+          "R": 132.0,
+          "R_STD": 3.0,
+          "SUBCHAN": 16,
+          "WAVELENGTH": 4.951000213623047,
+          "WL_MAX": 4.9720001220703125,
+          "WL_MIN": 4.929999828338623
+        },
+        "flags_semantics": "raw uninterpreted integer bitmap",
+        "image_unit": "MJy/sr",
+        "uncertainty": null
+      },
+      "validation": {
+        "classification": "STRUCTURALLY_DECODED_SOFTWARE_EVIDENCE",
+        "independent_photometric_calibration": false,
+        "reference_match": false
+      }
+    },
+    {
+      "arrays": {
+        "FLAGS": {
+          "dtype": ">i4",
+          "finite_count": 16,
+          "values": [
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ],
+            [
+              2097152,
+              2097152,
+              2097152,
+              2097152
+            ]
+          ]
+        },
+        "IMAGE": {
+          "dtype": ">f4",
+          "finite_count": 16,
+          "values": [
+            [
+              0.24167288839817047,
+              0.2535914480686188,
+              0.28847551345825195,
+              0.26285046339035034
+            ],
+            [
+              0.10606294870376587,
+              0.136125385761261,
+              0.19201858341693878,
+              0.12856125831604004
+            ],
+            [
+              0.08882776647806168,
+              0.14844495058059692,
+              0.11374834179878235,
+              0.1359279453754425
+            ],
+            [
+              0.06694711744785309,
+              0.08268114924430847,
+              0.07599346339702606,
+              0.1001368910074234
+            ]
+          ]
+        },
+        "NHITS": {
+          "dtype": ">i4",
+          "finite_count": 16,
+          "values": [
+            [
+              9,
+              8,
+              9,
+              9
+            ],
+            [
+              10,
+              9,
+              9,
+              8
+            ],
+            [
+              12,
+              9,
+              9,
+              10
+            ],
+            [
+              12,
+              11,
+              9,
+              8
+            ]
+          ]
+        }
+      },
+      "coordinates": {
+        "fits_axis_order": [
+          "x",
+          "y",
+          "spectral_channel"
+        ],
+        "numpy_axis_order": [
+          "spectral_channel",
+          "y",
+          "x"
+        ],
+        "pixel_extent_zero_based_inclusive": [
+          94,
+          107,
+          97,
+          110
+        ],
+        "pixel_origin_zero_based": [
+          94,
+          107
+        ],
+        "wcs_header": {
+          "CDELT1": 1.0,
+          "CDELT2": 1.0,
+          "CRPIX1": -17407.5,
+          "CRPIX2": -15359.5,
+          "CRVAL1": 0.0,
+          "CRVAL2": 0.0,
+          "CTYPE1": "RA---HPX",
+          "CTYPE2": "DEC--HPX",
+          "CUNIT1": "deg",
+          "CUNIT2": "deg",
+          "RADESYS": "ICRS"
+        }
+      },
+      "limitations": [
+        "Cube IMAGE is coadded surface brightness, not source photometry.",
+        "NHITS is coverage context and no uncertainty array is invented.",
+        "FLAGS are preserved without undocumented bit interpretation.",
+        "The cube is not a time series and supports no variability or motion claim."
+      ],
+      "provenance": {
+        "content_length": 320909760,
+        "etag": null,
+        "hdu_sequence": [
+          "PRIMARY",
+          "IMAGE",
+          "NHITS",
+          "FLAGS",
+          "SPECTRAL_CHANNELS",
+          "WCS-WAVE"
+        ],
+        "header_sha256": {
+          "FLAGS": "0614ad286867081b1da7499facb9f0f54bfdd66994a1bc0aeab313c38d2b2b1a",
+          "IMAGE": "4ff779629a67b8fc2a388047f79434db5595d656982c0f67460b01253a7b3008",
+          "NHITS": "8fd916a6d009a408da5cc7e827546eaee5b4bcc518a35b0d2c4744e8de4ba1bb",
+          "PRIMARY": "7cda78167e2e6b7ab7c6cae6c0faf415819e4ded7cfb4010ff8edf1d024b9d02",
+          "SPECTRAL_CHANNELS": "5346eb7f1fcae248170387bfd70db82f163da5f6b202656e9cd4568bf03685ff",
+          "WCS-WAVE": "19532061daf31f59e08c2dfd07aca8d3e6831933d6fde50422e3a06e81bfa1ad"
+        },
+        "last_modified": "Wed, 28 Oct 2026 12:03:07 GMT",
+        "product_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix7945_cube.fits"
+      },
+      "ranges": {
+        "FLAGS": {
+          "bytes": 6160,
+          "end": 319024071,
+          "sha256": "47f9370e9f029244d700c7007ea5745d4a791ce0db55642cb3508d027117332a",
+          "start": 319017912
+        },
+        "IMAGE": {
+          "bytes": 6160,
+          "end": 105091911,
+          "sha256": "113d4fb0bfaaeebf36a0e9c6d4b07104bd7529b215e62cc1feb3330ee4303fe5",
+          "start": 105085752
+        },
+        "NHITS": {
+          "bytes": 6160,
+          "end": 212055111,
+          "sha256": "de8d999066876bdfaf7076cd540ec855dcadf816626e2d4e8d6678433c1ddae9",
+          "start": 212048952
+        }
+      },
+      "request": {
+        "blank_channel": false,
+        "channel_zero_based": 100,
+        "height": 4,
+        "width": 4,
+        "x": 94,
+        "y": 107
+      },
+      "science": {
+        "channel": {
+          "BANDWIDTH": 0.03700000047683716,
+          "DETECTOR": 6,
+          "R": 132.0,
+          "R_STD": 3.0,
+          "SUBCHAN": 16,
+          "WAVELENGTH": 4.951000213623047,
+          "WL_MAX": 4.9720001220703125,
+          "WL_MIN": 4.929999828338623
+        },
+        "flags_semantics": "raw uninterpreted integer bitmap",
+        "image_unit": "MJy/sr",
+        "uncertainty": null
+      },
+      "validation": {
+        "classification": "STRUCTURALLY_DECODED_SOFTWARE_EVIDENCE",
+        "independent_photometric_calibration": false,
+        "reference_match": false
+      }
+    }
+  ],
+  "schema_version": 1
+}

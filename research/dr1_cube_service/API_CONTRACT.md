@@ -44,7 +44,8 @@ HTTP 200 returns classification `EXPERIMENTAL_DR1_CUBE_SAMPLE` with:
 - JSON `null` for nonfinite values and explicit missing counts;
 - IMAGE unit and strict scientific non-claims;
 - HDU sequence, header hashes, range hashes, and axis order;
-- decoder/evidence validation state;
+- validation state, including whether the response is a public verified-result
+  replay or a current raw-range decode;
 - persistent server budget, cache, runtime, and peak-RSS accounting.
 
 ## Errors
@@ -59,6 +60,13 @@ ERROR`, and a stable code/message/details object. Expected codes include:
 - `ARCHIVE_BUDGET_EXHAUSTED`, `RETRIEVAL_BUSY`, `ARCHIVE_RANGE_FAILURE`.
 
 Tracebacks, cache paths, ledger paths, and credentials are never returned.
+
+The default public package serves only the six recorded verified selections.
+Its response sets `public_result_replay: true` and
+`current_raw_range_decode_performed: false`; the recorded source-result SHA-256
+is included. A valid but unrecorded selection returns
+`GENUINE_EVIDENCE_UNAVAILABLE` rather than generating values. Raw response
+bodies, FITS data, and request ledgers are not part of the public fixture.
 
 ## Resource contract
 

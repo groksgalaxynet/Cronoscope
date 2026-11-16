@@ -1,0 +1,391 @@
+{
+  "classification": "PUBLIC_RUNTIME_SUBSET_OF_VERIFIED_PHASE40D_EVIDENCE",
+  "derived_from": {
+    "artifact": "frozen_population_detector_evidence.json",
+    "method": "exact field selection; no scientific values recalculated",
+    "sha256": "7ef5606aaf37b49ed0fdec93193e75c7ad2920df7fcd86d5ba2adfc5f815ce6f"
+  },
+  "results": [
+    {
+      "asteroid_identifier": "4748 Tokiwagozen (1989 WV)",
+      "asteroid_number": "4748",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": true,
+      "e_new": 7.070822114951843,
+      "e_old": 10.955446184044744,
+      "epoch_a_utc": "2026-01-08T04:59:07.965",
+      "epoch_b_utc": "2026-01-10T07:24:41.014",
+      "field_id": "FIELD_01",
+      "geometry": {
+        "angular_displacement_deg": 0.3887927606703828,
+        "apparent_angular_rate_deg_per_day": 0.18504451232012864,
+        "epoch_separation_seconds": 181533.0489985412
+      },
+      "product_a_obs_id": "2026W02_1A_0650_4",
+      "product_b_obs_id": "2026W02_2A_0404_1",
+      "v2_control_percentile": 100.0
+    },
+    {
+      "asteroid_identifier": "5122 Mucha (1989 AZ1)",
+      "asteroid_number": "5122",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": false,
+      "e_new": 15.11557510036154,
+      "e_old": -336.30048095274657,
+      "epoch_a_utc": "2026-01-08T04:59:07.965",
+      "epoch_b_utc": "2026-01-10T07:24:41.014",
+      "field_id": "FIELD_01",
+      "geometry": {
+        "angular_displacement_deg": 0.685074978778278,
+        "apparent_angular_rate_deg_per_day": 0.3260589655326005,
+        "epoch_separation_seconds": 181533.0489985412
+      },
+      "product_a_obs_id": "2026W02_1A_0650_4",
+      "product_b_obs_id": "2026W02_2A_0404_1",
+      "v2_control_percentile": 73.828125
+    },
+    {
+      "asteroid_identifier": "5173 Stjerneborg (1988 EM1)",
+      "asteroid_number": "5173",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": true,
+      "e_new": 1.4012588402286554,
+      "e_old": 1.1454136754739332,
+      "epoch_a_utc": "2026-01-08T04:59:07.965",
+      "epoch_b_utc": "2026-01-10T07:24:41.014",
+      "field_id": "FIELD_01",
+      "geometry": {
+        "angular_displacement_deg": 0.3182054526376407,
+        "apparent_angular_rate_deg_per_day": 0.1514487376241507,
+        "epoch_separation_seconds": 181533.0489985412
+      },
+      "product_a_obs_id": "2026W02_1A_0650_4",
+      "product_b_obs_id": "2026W02_2A_0404_1",
+      "v2_control_percentile": 92.96875
+    },
+    {
+      "asteroid_identifier": "9013 Sansaturio (1985 PA1)",
+      "asteroid_number": "9013",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": true,
+      "e_new": 2.2212480989029606,
+      "e_old": 1.3256779065809206,
+      "epoch_a_utc": "2026-01-08T04:59:07.965",
+      "epoch_b_utc": "2026-01-10T07:24:41.014",
+      "field_id": "FIELD_01",
+      "geometry": {
+        "angular_displacement_deg": 0.37018754367897816,
+        "apparent_angular_rate_deg_per_day": 0.1761894263899062,
+        "epoch_separation_seconds": 181533.0489985412
+      },
+      "product_a_obs_id": "2026W02_1A_0650_4",
+      "product_b_obs_id": "2026W02_2A_0404_1",
+      "v2_control_percentile": 96.875
+    },
+    {
+      "asteroid_identifier": "737 Arequipa (A912 XC)",
+      "asteroid_number": "737",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": false,
+      "e_new": 52.07488194321639,
+      "e_old": -21.37242408865567,
+      "epoch_a_utc": "2026-03-15T04:49:04.256",
+      "epoch_b_utc": "2026-03-16T14:55:09.391",
+      "field_id": "FIELD_02",
+      "geometry": {
+        "angular_displacement_deg": 0.2099961189008473,
+        "apparent_angular_rate_deg_per_day": 0.14779167290152903,
+        "epoch_separation_seconds": 122765.13498241547
+      },
+      "product_a_obs_id": "2026W11_2A_0532_4",
+      "product_b_obs_id": "2026W12_1A_0116_1",
+      "v2_control_percentile": 73.828125
+    },
+    {
+      "asteroid_identifier": "3487 Edgeworth (1978 UF)",
+      "asteroid_number": "3487",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": true,
+      "e_new": 4.475134159247729,
+      "e_old": 3.668822530523122,
+      "epoch_a_utc": "2026-03-15T04:49:04.256",
+      "epoch_b_utc": "2026-03-16T14:55:09.391",
+      "field_id": "FIELD_02",
+      "geometry": {
+        "angular_displacement_deg": 0.21719348075720288,
+        "apparent_angular_rate_deg_per_day": 0.15285705294186536,
+        "epoch_separation_seconds": 122765.13498241547
+      },
+      "product_a_obs_id": "2026W11_2A_0532_4",
+      "product_b_obs_id": "2026W12_1A_0116_1",
+      "v2_control_percentile": 94.921875
+    },
+    {
+      "asteroid_identifier": "17529 (1993 FJ23)",
+      "asteroid_number": "17529",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": true,
+      "e_new": 4.55944914344342,
+      "e_old": 0.2810258104573475,
+      "epoch_a_utc": "2026-03-15T04:49:04.256",
+      "epoch_b_utc": "2026-03-16T14:55:09.391",
+      "field_id": "FIELD_02",
+      "geometry": {
+        "angular_displacement_deg": 0.2601924820863735,
+        "apparent_angular_rate_deg_per_day": 0.18311901384283685,
+        "epoch_separation_seconds": 122765.13498241547
+      },
+      "product_a_obs_id": "2026W11_2A_0532_4",
+      "product_b_obs_id": "2026W12_1A_0116_1",
+      "v2_control_percentile": 92.96875
+    },
+    {
+      "asteroid_identifier": "19651 (1999 RC112)",
+      "asteroid_number": "19651",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": false,
+      "e_new": -2.7234610908665493,
+      "e_old": -3.349425696635511,
+      "epoch_a_utc": "2026-03-15T04:49:04.256",
+      "epoch_b_utc": "2026-03-16T14:55:09.391",
+      "field_id": "FIELD_02",
+      "geometry": {
+        "angular_displacement_deg": 0.4029349732118752,
+        "apparent_angular_rate_deg_per_day": 0.28357873504144815,
+        "epoch_separation_seconds": 122765.13498241547
+      },
+      "product_a_obs_id": "2026W11_2A_0532_4",
+      "product_b_obs_id": "2026W12_1A_0116_1",
+      "v2_control_percentile": 73.828125
+    },
+    {
+      "asteroid_identifier": "105522 (2000 RH25)",
+      "asteroid_number": "105522",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": false,
+      "e_new": -0.16979564183539442,
+      "e_old": 1.5088572110209404,
+      "epoch_a_utc": "2025-11-28T20:11:28.188",
+      "epoch_b_utc": "2025-11-29T00:52:22.823",
+      "field_id": "FIELD_03",
+      "geometry": {
+        "angular_displacement_deg": 0.02689512589425247,
+        "apparent_angular_rate_deg_per_day": 0.13786942743320613,
+        "epoch_separation_seconds": 16854.6350015793
+      },
+      "product_a_obs_id": "2025W48_2A_0300_4",
+      "product_b_obs_id": "2025W48_2A_0346_1",
+      "v2_control_percentile": 78.125
+    },
+    {
+      "asteroid_identifier": "175348 (2005 OO2)",
+      "asteroid_number": "175348",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": true,
+      "e_new": 0.3612272859289938,
+      "e_old": 0.01670416212309628,
+      "epoch_a_utc": "2025-11-28T20:11:28.188",
+      "epoch_b_utc": "2025-11-29T00:52:22.823",
+      "field_id": "FIELD_03",
+      "geometry": {
+        "angular_displacement_deg": 0.03283762451455423,
+        "apparent_angular_rate_deg_per_day": 0.1683317827880366,
+        "epoch_separation_seconds": 16854.6350015793
+      },
+      "product_a_obs_id": "2025W48_2A_0300_4",
+      "product_b_obs_id": "2025W48_2A_0346_1",
+      "v2_control_percentile": 78.90625
+    },
+    {
+      "asteroid_identifier": "177020 (2003 BW61)",
+      "asteroid_number": "177020",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": false,
+      "e_new": 0.5513315550171386,
+      "e_old": -1.6205885536119515,
+      "epoch_a_utc": "2025-11-28T20:11:28.188",
+      "epoch_b_utc": "2025-11-29T00:52:22.823",
+      "field_id": "FIELD_03",
+      "geometry": {
+        "angular_displacement_deg": 0.04541142546120437,
+        "apparent_angular_rate_deg_per_day": 0.23278742965839466,
+        "epoch_separation_seconds": 16854.6350015793
+      },
+      "product_a_obs_id": "2025W48_2A_0300_4",
+      "product_b_obs_id": "2025W48_2A_0346_1",
+      "v2_control_percentile": 78.125
+    },
+    {
+      "asteroid_identifier": "215451 (2002 OH19)",
+      "asteroid_number": "215451",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": false,
+      "e_new": -0.25541215238134046,
+      "e_old": 0.7568832605728307,
+      "epoch_a_utc": "2025-11-28T20:11:28.188",
+      "epoch_b_utc": "2025-11-29T00:52:22.823",
+      "field_id": "FIELD_03",
+      "geometry": {
+        "angular_displacement_deg": 0.039983272098380346,
+        "apparent_angular_rate_deg_per_day": 0.20496170394531626,
+        "epoch_separation_seconds": 16854.6350015793
+      },
+      "product_a_obs_id": "2025W48_2A_0300_4",
+      "product_b_obs_id": "2025W48_2A_0346_1",
+      "v2_control_percentile": 78.125
+    },
+    {
+      "asteroid_identifier": "1216 Askania (1932 BL)",
+      "asteroid_number": "1216",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": false,
+      "e_new": -1.5929428273053616,
+      "e_old": 1.5929428273053616,
+      "epoch_a_utc": "2026-03-30T18:41:25.000",
+      "epoch_b_utc": "2026-03-30T18:43:33.931",
+      "field_id": "FIELD_05",
+      "geometry": {
+        "angular_displacement_deg": 0.0006095937855455153,
+        "apparent_angular_rate_deg_per_day": 0.40850455634398053,
+        "epoch_separation_seconds": 128.93100518267602
+      },
+      "product_a_obs_id": "2026W14_1A_0182_1",
+      "product_b_obs_id": "2026W14_1A_0182_2",
+      "v2_control_percentile": 84.765625
+    },
+    {
+      "asteroid_identifier": "6218 Mizushima (1977 EG7)",
+      "asteroid_number": "6218",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": false,
+      "e_new": -1.1360540020294414,
+      "e_old": 1.1360540020294414,
+      "epoch_a_utc": "2026-03-30T18:41:25.000",
+      "epoch_b_utc": "2026-03-30T18:43:33.931",
+      "field_id": "FIELD_05",
+      "geometry": {
+        "angular_displacement_deg": 0.0004229395068810839,
+        "apparent_angular_rate_deg_per_day": 0.2834226983862502,
+        "epoch_separation_seconds": 128.93100518267602
+      },
+      "product_a_obs_id": "2026W14_1A_0182_1",
+      "product_b_obs_id": "2026W14_1A_0182_2",
+      "v2_control_percentile": 84.765625
+    },
+    {
+      "asteroid_identifier": "8686 Akenside (1992 OX1)",
+      "asteroid_number": "8686",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": false,
+      "e_new": -9.176583164769786,
+      "e_old": 9.176583164769786,
+      "epoch_a_utc": "2026-03-30T18:41:25.000",
+      "epoch_b_utc": "2026-03-30T18:43:33.931",
+      "field_id": "FIELD_05",
+      "geometry": {
+        "angular_displacement_deg": 0.00031034055486102143,
+        "apparent_angular_rate_deg_per_day": 0.2079672294651052,
+        "epoch_separation_seconds": 128.93100518267602
+      },
+      "product_a_obs_id": "2026W14_1A_0182_1",
+      "product_b_obs_id": "2026W14_1A_0182_2",
+      "v2_control_percentile": 84.765625
+    },
+    {
+      "asteroid_identifier": "9055 Edvardsson (1992 DP8)",
+      "asteroid_number": "9055",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": false,
+      "e_new": -0.3838278973659886,
+      "e_old": 0.3838278973659886,
+      "epoch_a_utc": "2026-03-30T18:41:25.000",
+      "epoch_b_utc": "2026-03-30T18:43:33.931",
+      "field_id": "FIELD_05",
+      "geometry": {
+        "angular_displacement_deg": 0.00041837173718858444,
+        "apparent_angular_rate_deg_per_day": 0.28036171781859864,
+        "epoch_separation_seconds": 128.93100518267602
+      },
+      "product_a_obs_id": "2026W14_1A_0182_1",
+      "product_b_obs_id": "2026W14_1A_0182_2",
+      "v2_control_percentile": 84.765625
+    },
+    {
+      "asteroid_identifier": "301879 (1997 HK13)",
+      "asteroid_number": "301879",
+      "base_reason": "old=INSUFFICIENT_FINITE_APERTURE; new=VALID",
+      "base_valid": false,
+      "both_sign_gate": false,
+      "e_new": null,
+      "e_old": null,
+      "epoch_a_utc": "2026-05-26T16:01:55.554",
+      "epoch_b_utc": "2026-06-09T23:49:56.287",
+      "field_id": "FIELD_06",
+      "geometry": {
+        "angular_displacement_deg": 1.4974782655878764,
+        "apparent_angular_rate_deg_per_day": 0.1045359426669839,
+        "epoch_separation_seconds": 1237680.733017926
+      },
+      "product_a_obs_id": "2026W22_1A_0262_1",
+      "product_b_obs_id": "2026W24_1A_0440_1",
+      "v2_control_percentile": null
+    },
+    {
+      "asteroid_identifier": "321899 (2010 TC7)",
+      "asteroid_number": "321899",
+      "base_reason": "",
+      "base_valid": true,
+      "both_sign_gate": true,
+      "e_new": 1.0934075062228004,
+      "e_old": 5.5851334204343015,
+      "epoch_a_utc": "2026-05-26T16:01:55.554",
+      "epoch_b_utc": "2026-06-09T23:49:56.287",
+      "field_id": "FIELD_06",
+      "geometry": {
+        "angular_displacement_deg": 2.3358204034558714,
+        "apparent_angular_rate_deg_per_day": 0.16305891937615247,
+        "epoch_separation_seconds": 1237680.733017926
+      },
+      "product_a_obs_id": "2026W22_1A_0262_1",
+      "product_b_obs_id": "2026W24_1A_0440_1",
+      "v2_control_percentile": 98.046875
+    },
+    {
+      "asteroid_identifier": "323147 (2003 ER18)",
+      "asteroid_number": "323147",
+      "base_reason": "old=VALID; new=APERTURE_OUT_OF_BOUNDS",
+      "base_valid": false,
+      "both_sign_gate": false,
+      "e_new": null,
+      "e_old": null,
+      "epoch_a_utc": "2026-05-26T16:01:55.554",
+      "epoch_b_utc": "2026-06-09T23:49:56.287",
+      "field_id": "FIELD_06",
+      "geometry": {
+        "angular_displacement_deg": 2.232197325970596,
+        "apparent_angular_rate_deg_per_day": 0.15582520097375238,
+        "epoch_separation_seconds": 1237680.733017926
+      },
+      "product_a_obs_id": "2026W22_1A_0262_1",
+      "product_b_obs_id": "2026W24_1A_0440_1",
+      "v2_control_percentile": null
+    }
+  ],
+  "schema_version": 1
+}

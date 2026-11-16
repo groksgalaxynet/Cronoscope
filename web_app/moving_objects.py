@@ -15,7 +15,7 @@ from typing import Any
 from cronoscope_pipeline.models import ObservationRecord
 
 ROOT = Path(__file__).resolve().parents[1]
-FROZEN_EVIDENCE = ROOT / "tests/test40d_frozen_population_detector_evaluation" / "frozen_population_detector_evidence.json"
+FROZEN_EVIDENCE = ROOT / "web_app" / "data" / "moving_object_runtime_catalog.json"
 FROZEN_POPULATION = ROOT / "tests/test40b_balanced_multipair_population" / "balanced_multipair_population.json"
 INVENTORY = ROOT / "csv" / "test9_stage1b_observations.csv"
 

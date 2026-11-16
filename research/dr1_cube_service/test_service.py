@@ -25,6 +25,7 @@ EVIDENCE = (
     ROOT / "research" / "dr1_cube_reader" / "evidence" /
     "CRONOSCOPE_DR1_5_NPIX7945_MULTI_2026_11_15"
 )
+PUBLIC_FIXTURE = ROOT / "research" / "dr1_cube_service" / "fixtures" / "Npix7945_verified_samples.json"
 
 
 class RedirectResponse:
@@ -46,8 +47,8 @@ class ServiceTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory()
         self.state = Path(self.temporary.name)
-        self.service = CubeSampleService(ServiceConfig(self.state, EVIDENCE))
-        self.reference = json.loads((EVIDENCE / "multi_channel_result.json").read_text())
+        self.service = CubeSampleService(ServiceConfig(self.state))
+        self.reference = json.loads(PUBLIC_FIXTURE.read_text())
 
     def tearDown(self) -> None:
         self.temporary.cleanup()
@@ -75,6 +76,11 @@ class ServiceTests(unittest.TestCase):
                     sample = expected[(channel, x, 107, 4, 4)]
                     self.assertEqual(result["classification"], "EXPERIMENTAL_DR1_CUBE_SAMPLE")
                     self.assertTrue(result["validation"]["genuine_evidence_match"])
+                    self.assertTrue(result["validation"]["public_result_replay"])
+                    self.assertEqual(
+                        result["validation"]["genuine_evidence_match_basis"],
+                        "recorded_in_verified_source_result",
+                    )
                     self.assertEqual(result["wavelength_metadata"], sample["science"]["channel"])
                     for name in ("IMAGE", "NHITS", "FLAGS"):
                         self.assertEqual(result["arrays"][name]["values"], sample["arrays"][name]["values"])
@@ -108,7 +114,19 @@ class ServiceTests(unittest.TestCase):
         self.assertEqual(caught.exception.code, "GENUINE_EVIDENCE_UNAVAILABLE")
         self.assertIn("no value was fabricated", caught.exception.message)
 
+    def test_missing_public_fixture_reports_unavailable_instead_of_crashing(self) -> None:
+        service = CubeSampleService(ServiceConfig(
+            self.state / "missing", public_result_fixture=self.state / "absent.json"
+        ))
+        with self.assertRaises(ServiceError) as caught:
+            service.sample(self.payload())
+        self.assertEqual(caught.exception.code, "GENUINE_EVIDENCE_UNAVAILABLE")
+        self.assertIn("no value was fabricated", caught.exception.message)
+
     def test_cache_corruption_is_detected_then_refetched_from_evidence(self) -> None:
+        if not (EVIDENCE / "multi_channel_result.json").is_file():
+            self.skipTest("private raw-range evidence is not included in public checkouts")
+        self.service = CubeSampleService(ServiceConfig(self.state, EVIDENCE))
         first = self.service.sample(self.payload())
         self.assertTrue(first["validation"]["genuine_evidence_match"])
         cached = next((self.state / "range_cache").glob("*.bin"))
@@ -135,6 +153,9 @@ class ServiceTests(unittest.TestCase):
         self.assertEqual(stats["evictions"], 1)
 
     def test_verified_cache_survives_restart_without_refetch(self) -> None:
+        if not (EVIDENCE / "multi_channel_result.json").is_file():
+            self.skipTest("private raw-range evidence is not included in public checkouts")
+        self.service = CubeSampleService(ServiceConfig(self.state, EVIDENCE))
         original = self.service.sample(self.payload())
         self.assertTrue(original["validation"]["genuine_evidence_match"])
 
@@ -181,6 +202,8 @@ class ServiceTests(unittest.TestCase):
         self.assertEqual(calls, 1)
 
     def test_service_allows_only_one_active_retrieval(self) -> None:
+        if not (EVIDENCE / "multi_channel_result.json").is_file():
+            self.skipTest("private raw-range evidence is not included in public checkouts")
         entered = threading.Event(); release = threading.Event()
 
         class BlockingSource(GenuineEvidenceSource):
@@ -212,7 +235,7 @@ class ServiceTests(unittest.TestCase):
             method="HEAD", url=NPIX7945.url, planned_bytes=0
         )
         self.service.budgets.ledger.finish_request(reservation, state="completed", http_status=200)
-        restarted = CubeSampleService(ServiceConfig(self.state, EVIDENCE))
+        restarted = CubeSampleService(ServiceConfig(self.state))
         self.assertEqual(restarted.budgets.public_snapshot()["attempts"], 1)
         result = restarted.sample(self.payload())
         self.assertEqual(result["resources"]["budget"]["attempts"], 1)

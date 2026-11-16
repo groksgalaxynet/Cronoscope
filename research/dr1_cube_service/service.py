@@ -36,6 +36,9 @@ from .resolver import AllowedProduct, OFFICIAL_HOST, ProductResolver
 from .schemas import SampleRequest
 
 
+PUBLIC_RESULT_FIXTURE = Path(__file__).with_name("fixtures") / "Npix7945_verified_samples.json"
+
+
 class RangeSource(Protocol):
     identity: ProductIdentity
     mode: str
@@ -220,6 +223,7 @@ class ServiceConfig:
     enable_live: bool = False
     cache_max_bytes: int = 2 * 1024 * 1024
     max_concurrent_retrievals: int = 1
+    public_result_fixture: Path | None = PUBLIC_RESULT_FIXTURE
 
 
 class CubeSampleService:
@@ -231,8 +235,6 @@ class CubeSampleService:
     ) -> None:
         if config.max_concurrent_retrievals != 1:
             raise ValueError("DR1.6 permits exactly one concurrent archive retrieval")
-        if config.evidence_root is None and not config.enable_live and source_factory is None:
-            raise ValueError("service requires preserved evidence or explicit live enablement")
         self.config = config
         self.resolver = ProductResolver()
         self.budgets = BudgetController(config.state_dir)
@@ -262,6 +264,11 @@ class CubeSampleService:
         before = self.budgets.public_snapshot()
         cache_before = self.cache.stats()
         try:
+            if (
+                self._source_factory is None and self.config.evidence_root is None
+                and not self.config.enable_live
+            ):
+                return self._replay_public_result(request, product, started, before, cache_before)
             raw_source = self._source(product)
             if raw_source.identity.final_url != product.url:
                 raise ServiceError("PRODUCT_IDENTITY_MISMATCH", "Resolved product URL changed.", 502)
@@ -365,3 +372,97 @@ class CubeSampleService:
             raise ServiceError("DECODING_FAILURE", "The bounded cube sample could not be decoded.", 422) from exc
         finally:
             self._slot.release()
+
+    def _replay_public_result(
+        self, request: SampleRequest, product: AllowedProduct, started: float,
+        before: dict[str, Any], cache_before: dict[str, Any],
+    ) -> dict[str, Any]:
+        fixture_path = self.config.public_result_fixture
+        if fixture_path is None or not fixture_path.is_file():
+            raise ServiceError(
+                "GENUINE_EVIDENCE_UNAVAILABLE",
+                "The public verified-result replay is unavailable; no value was fabricated.", 422,
+            )
+        fixture = json.loads(fixture_path.read_text(encoding="utf-8"))
+        identity = fixture.get("product_identity", {})
+        if (
+            fixture.get("classification") != "PUBLIC_REPLAY_OF_VERIFIED_DR1_RESULT"
+            or identity.get("final_url") != product.url
+            or identity.get("content_length") != product.expected_content_length
+        ):
+            raise ServiceError(
+                "GENUINE_EVIDENCE_UNAVAILABLE",
+                "The public verified-result replay failed identity validation; no value was fabricated.", 422,
+            )
+        key = (request.channel, request.x, request.y, request.width, request.height)
+        sample = next((item for item in fixture.get("samples", []) if (
+            item["request"]["channel_zero_based"], item["request"]["x"],
+            item["request"]["y"], item["request"]["width"], item["request"]["height"],
+        ) == key), None)
+        if sample is None:
+            raise ServiceError(
+                "GENUINE_EVIDENCE_UNAVAILABLE",
+                "No public verified result exists for this selection; no value was fabricated.", 422,
+            )
+        pixels = request.width * request.height
+        missing = {
+            name: pixels - int(sample["arrays"][name]["finite_count"])
+            for name in ("IMAGE", "NHITS", "FLAGS")
+        }
+        after = self.budgets.public_snapshot()
+        cache_after = self.cache.stats()
+        return {
+            "classification": "EXPERIMENTAL_DR1_CUBE_SAMPLE",
+            "status": "SUCCESS",
+            "product": {
+                "product_id": product.product_id, "filename": product.filename,
+                "release": product.release, "collection": product.collection,
+                "official_url": product.url, "content_length": product.expected_content_length,
+                "last_modified": identity.get("last_modified"), "etag": identity.get("etag"),
+            },
+            "selection": {
+                "channel_zero_based": request.channel,
+                "pixel_origin_zero_based": [request.x, request.y],
+                "width": request.width, "height": request.height,
+            },
+            "wavelength_metadata": sample["science"]["channel"],
+            "arrays": sample["arrays"],
+            "missing_data": {
+                "null_represents_nonfinite": True, "missing_count": missing,
+                "blank_channels_unavailable": [51, 52],
+            },
+            "science": {
+                "image_unit": sample["science"]["image_unit"],
+                "nhits_meaning": "observation contribution count; not uncertainty",
+                "flags_semantics": "raw uninterpreted integer bitmap", "uncertainty": None,
+                "product_class": "DR1 all-sky coadded spectral cube",
+                "source_photometry": False, "source_spectrum": False, "time_series": False,
+            },
+            "fits_provenance": {
+                "hdu_sequence": sample["provenance"]["hdu_sequence"],
+                "header_sha256": sample["provenance"]["header_sha256"],
+                "range_sha256": {name: sample["ranges"][name]["sha256"] for name in ("IMAGE", "NHITS", "FLAGS")},
+                "axis_order": sample["coordinates"]["numpy_axis_order"],
+            },
+            "validation": {
+                "reader_classification": sample["validation"]["classification"],
+                "genuine_evidence_match": True,
+                "genuine_evidence_match_basis": "recorded_in_verified_source_result",
+                "current_raw_range_decode_performed": False,
+                "public_result_replay": True,
+                "source_result_sha256": fixture["derived_from"]["sha256"],
+                "independent_photometric_calibration": False,
+            },
+            "resources": {
+                "external_requests_this_call": after["attempts"] - before["attempts"],
+                "external_bytes_this_call": after["actual_received_bytes"] - before["actual_received_bytes"],
+                "budget": after, "cache": cache_after,
+                "cache_hits_this_call": cache_after["hits"] - cache_before["hits"],
+                "runtime_seconds": time.perf_counter() - started,
+                "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+            },
+            "limitations": sample["limitations"] + [
+                "Values are replayed from a verified public result subset; raw FITS ranges are not packaged.",
+                "Decoder agreement does not establish independent photometric calibration.",
+            ],
+        }

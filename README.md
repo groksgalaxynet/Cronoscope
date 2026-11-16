@@ -18,14 +18,25 @@ Cronoscope is an independent project; it is not endorsed by NASA.
 | Resource | Status |
 | --- | --- |
 | Public GitHub Pages demonstration | **Live static demonstration:** [groksgalaxynet.github.io/Cronoscope](https://groksgalaxynet.github.io/Cronoscope/) |
-| Source repository | **Owner URL pending** — this checkout is the project source. |
+| Source repository | [github.com/groksgalaxynet/Cronoscope](https://github.com/groksgalaxynet/Cronoscope) |
 | Getting started locally | [START HERE](START_HERE.md) |
-| Project story | [A Letter From the Creator](A_letter_from_creator.md) |
+| Project story | [A Letter From the Creator](Letter%20from%20the%20Creator_2.md) |
 | Static demonstration guide | [Static demonstration README](static_feasibility/README.md) |
 
 ## What Cronoscope can do
 
-The project has two deliberately distinct experiences.
+Cronoscope has four deliberately distinct surfaces. Keeping them separate
+prevents a static presentation or a verified replay from being mistaken for a
+live scientific backend.
+
+| Surface | Purpose | How to access it |
+| --- | --- | --- |
+| **Production scientific application** | Local FITS/WCS/WCS-WAVE inspection, pixel context, retained-product viewing, and bounded comparisons | Run `python -m web_app.api`; real-data features require suitable local products, while missing products remain explicitly unavailable |
+| **Experimental DR1 cube reader** | Bounded research decoding of an allowlisted DR1 All-Sky Cube using scientific HTTP byte ranges | Use [`research/dr1_cube_reader/`](research/dr1_cube_reader/) with Python; live range work is a controlled research workflow, not the default public experience |
+| **Experimental localhost DR1 API and explorer** | Six verified 4×4 cube samples with IMAGE, NHITS, raw FLAGS, wavelength metadata, and provenance | Start the service below, then open `http://127.0.0.1:8766/experimental/dr1-cube` |
+| **Static GitHub Pages demonstration** | Self-contained competition presentation with bundled, labelled displays and provenance | Open [groksgalaxynet.github.io/Cronoscope](https://groksgalaxynet.github.io/Cronoscope/); it does not host or call the Python backend |
+
+The production application and static demonstration differ as follows.
 
 | Capability | Full Python scientific application | Static GitHub Pages demonstration |
 | --- | --- | --- |
@@ -39,6 +50,25 @@ The project has two deliberately distinct experiences.
 
 The static site is a demonstration surface, not a browser version of the full
 scientific application.
+
+### Verified Public Release — DR1.9
+
+Cronoscope DR1.9 was frozen on **November 15, 2026** after clean-checkout
+acceptance.
+
+| Release evidence | Result |
+| --- | --- |
+| Release tag | `cronoscope-dr1.9-verified` |
+| Frozen commit | `701c6f5e822a5cea060ed87013dca66744ea35ba` |
+| Clean-checkout application startup | **PASS** |
+| DR1 API acceptance | **PASS** |
+| Experimental explorer acceptance | **PASS** |
+| Final publication smoke tests | **2 passed, 0 failed** |
+| Frozen baseline integrity | **149/149 hashes verified** |
+
+The two final publication smoke tests verify public packaging and startup
+closure. They are not a substitute for the earlier focused scientific tests
+or the full regression history recorded below.
 
 ### DR1 progress — November 15, 2026
 
@@ -78,17 +108,29 @@ The isolated localhost package in
 [`research/dr1_cube_service/`](research/dr1_cube_service/) adds a fixed
 server-side product allowlist, persistent request/transfer budgets, a bounded
 SHA-256-verified range cache, structured errors, and a minimal same-origin
-wavelength explorer. In preserved-evidence mode the explorer supports channels
-0, 20, and 100 and the two verified 4×4 regions without making an archive
-request.
+wavelength explorer. In public replay mode the explorer supports channels
+0, 20, and 100 and the two verified 4×4 regions. The default public mode
+replays six previously verified scientific samples, makes zero archive
+requests, and does not perform a fresh FITS decode. A valid selection outside
+those six samples is reported as unavailable; no value is fabricated and the
+public replay does not provide arbitrary cube-region decoding.
 
-Start the service as documented in its
-[README](research/dr1_cube_service/README.md), then open
-`http://127.0.0.1:8766/experimental/dr1-cube`. This localhost research page is
-separate from the production viewer and GitHub Pages. It displays genuine
-IMAGE, NHITS, and raw FLAGS values with wavelength metadata and provenance;
-it makes no source-photometry, source-spectrum, uncertainty, motion,
-variability, or independent-calibration claim.
+Start the service from the repository root:
+
+```bash
+.venv/bin/python -m research.dr1_cube_service.api \
+  --state-dir /tmp/cronoscope-dr1-state \
+  --port 8766
+```
+
+Then open `http://127.0.0.1:8766/experimental/dr1-cube`. See the service
+[README](research/dr1_cube_service/README.md) and
+[API contract](research/dr1_cube_service/API_CONTRACT.md) for the complete
+boundary. This localhost research page is separate from the production viewer
+and GitHub Pages. It displays recorded verified IMAGE, NHITS, and raw FLAGS
+values with wavelength metadata and provenance; it makes no source-photometry,
+source-spectrum, uncertainty, motion, variability, complete 102-channel
+validation, or independent-calibration claim.
 
 ## Scientific foundations
 
@@ -238,6 +280,22 @@ The static demonstration was subsequently deployed and checked at
 The public site is the self-contained static demonstration; local verification
 results remain the authority for the full FITS-driven Python application.
 
+DR1.9 publication and acceptance results recorded on November 15, 2026:
+
+- **Earlier full regression during DR1.7 acceptance:** `221 passed, 16 subtests
+  passed`
+- **DR1.9 focused local acceptance:** `17 passed, 3 skipped, 17 subtests passed`
+- **Final clean-checkout publication smoke tests:** `2 passed, 0 failed`
+- **Clean-checkout application, DR1 API, and explorer acceptance:** PASS
+- **Frozen checkpoint-local baseline integrity:** `149/149 hashes verified`
+- **Default public cube replay archive requests:** `0`
+
+These results have different scopes: the November 13 results preserve the
+competition baseline history; the earlier DR1 focused/regression results cover
+scientific and application behavior; and the two final smoke tests confirm the
+published package starts cleanly. No two-test smoke run is presented as full
+scientific validation.
+
 ## Open source and attribution
 
 Original Cronoscope source code and original project documentation are licensed
@@ -259,7 +317,7 @@ data. Data provenance and attribution are documented in the
 
 Cronoscope is a solo-created project. Its origin, motivation, AI-assisted
 development process, and long-term ambition are told in the creator's own
-words in [A Letter From the Creator](A_letter_from_creator.md).
+words in [A Letter From the Creator](Letter%20from%20the%20Creator_2.md).
 
 ## NASA Space Apps Challenge 2026
 
@@ -278,9 +336,9 @@ claim of NASA endorsement, sponsorship, award, or competition result.
   remain evidence-led research, not production detection claims.
 - **DR1 Wide/Deep:** supported in the full local application with explicit
   release boundaries; QR2 and QR3 remain separately labelled and guarded.
-- **DR1 All-Sky Cube:** a bounded experimental reader is published for research
-  and reproducibility, but it is not integrated into the application or static
-  demonstration.
+- **DR1 All-Sky Cube:** a bounded experimental reader and an isolated localhost
+  public-replay API/explorer are published for research and reproducibility;
+  neither is integrated into the production application or static Pages demo.
 - **Publication blocker:** required rights/redistribution review for packaged
   scientific, gallery, and branding assets remains unresolved; see the
   [publication asset manifest](PUBLICATION_ASSET_MANIFEST.md).
